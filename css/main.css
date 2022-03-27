@@ -18,7 +18,7 @@
 /* Body */
   body {
     background: #F5F4EF;
-	color: #000305;
+    color: #000305;
     font-size: 87.5%; /* Base font size: 14px */
     font-family: 'Open Sans', 'Bubblegum Sans', cursive, sans-serif;
     line-height: 1.429;
@@ -48,10 +48,10 @@ h6 {font-size: 1em;} /* 14px */
 
 h1 {
   font-family: 'Bubblegum Sans', cursive;	
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.1;
-  margin-bottom: .8em;
-  margin-left: 5px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h2, h3, h4, h5, h6 {
