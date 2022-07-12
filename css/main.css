@@ -158,7 +158,7 @@ table {margin: .5em auto 1.5em auto; width: 98%;}
 
 
 /* HTML5 tags */
-header, section, footer,
+header, main, section, footer,
 aside, nav, article, figure {
   display: block;
 }
