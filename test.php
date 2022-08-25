@@ -60,7 +60,7 @@
 		<article id="tunein" class="container">
 			<h2>Listen Now!</h2>
 			<h3>Now Playing:</h3>
-			 <?php
+			<pre> <?php
 include('icecast.php');
 print_r($stream);
 ?>
