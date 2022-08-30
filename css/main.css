@@ -94,8 +94,8 @@ ul {
   margin: 1em 0 1.5em 1.5em;
 }
 
-ul.2columns {
-    columns: 2;
+ul.twocolumns {
+  columns: 2;
   -webkit-columns: 2;
   -moz-columns: 2;
 }
