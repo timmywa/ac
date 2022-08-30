@@ -92,6 +92,9 @@ em, i {font-style: italic;}
 ul {
   list-style: outside disc;
   margin: 1em 0 1.5em 1.5em;
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
 }
 
 ol {
