@@ -24,7 +24,7 @@
     line-height: 1.429;
     margin: 0;
     padding: 0;
-  }
+}
 
   .container {
 	background: #b7d2f7;
@@ -34,7 +34,7 @@
 	padding: 0;
 	margin: 0 auto;
 	text-align: left;
-  }
+}
   
 img {max-width: 95%;}
 
@@ -112,7 +112,6 @@ dd {margin-left: 1.5em;}
 /* Quotes */
 blockquote {font-style: italic;}
 cite {}
-
 q {}
 
 /* Create three equal columns that floats next to each other */
@@ -159,7 +158,7 @@ table {margin: .5em auto 1.5em auto; width: 98%;}
 	font-family: 'Open Sans', sans-serif;
 	font-size: .75em;
 	text-align: center;
-  }
+}
 
 
 /* HTML5 tags */
