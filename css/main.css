@@ -1,4 +1,3 @@
-
 /*
   Name: Smashing HTML5
   Date: July 2009
@@ -27,16 +26,16 @@
 }
 
   .container {
-	background: #b7d2f7;
-	width: 100%;
-  max-width: 660px;
-	clear: both;
-	padding: 0;
-	margin: 0 auto;
-	text-align: left;
+  	background: #b7d2f7;
+  	width: 100%;
+    max-width: 660px;
+  	clear: both;
+  	padding: 0;
+  	margin: 0 auto;
+  	text-align: left;
 }
   
-img {max-width: 95%;}
+/* img {max-width: 95%;} */
 
 /* Headings */
 h1 {font-size: 2.00em;}
