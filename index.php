@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>America's Country - Listen Live</title>
+	<meta name="description" content="America's Country is an internet radio station that plays Three Decades of Country! This page will help you discover many ways to listen.">
+	<link rel="icon" type="image/x-icon" href="https://marinifamily.files.wordpress.com/2015/08/favicon.png">
+	<meta name="robots" content="index, follow">
+	<link rel="canonical" href="https://americascountry.us/">
+	<meta property="og:url" content="https://americascountry.us/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="America's Country - Listen Live">
+	<meta property="og:description" content="America's Country is an internet radio station that plays Three Decades of Country! This page will help you discover many ways to listen.">
+	<meta property="og:image" content="https://americascountry.us/images/logo-5001.png">
+	<meta property="fb:app_id" content="1543598645802173">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@americascountry">
+	<meta name="twitter:creator" content="@timmywa">
+	<meta property="twitter:domain" content="americascountry.us">
+	<meta property="twitter:url" content="https://americascountry.us/">
+	<meta name="twitter:title" content="America's Country - Listen Live">
+	<meta name="twitter:description" content="America's Country is an internet radio station that plays Three Decades of Country! This page will help you discover many ways to listen.">
+	<meta name="twitter:image" content="https://americascountry.us/images/logo-5001.png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://marinifamily.files.wordpress.com">
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+	<link rel="preconnect" href="https://tunein.com">
+	<link rel="preconnect" href="https://www.facebook.com">
+	<!-- <link rel="preconnect" href="https://twitter.com"> -->
+	<link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/main.css" type="text/css">
+	    <!--[if lte IE 9]>
+	      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+	    <![endif]-->
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7092128557292662" crossorigin="anonymous"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-7PSR0H57RS"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-7PSR0H57RS');
+		</script>
+</head>
+
+<body id="base" class="body">
+
+	<main id="main" class="container">
+
+		<header id="banner" class="container">
+			<a href="https://americascountry.us"><img src="https://marinifamily.files.wordpress.com/2018/04/site-banner-small1.png" alt="America's Country in Stylized Text with a Cowboy Hat on an American Flag Background" title="America's Country" class="center"></a>
+			<h1 class="center">America's Country<br>Three Decades of Country!</h1>
+		</header>
+	  <article id="nowplaying" class="container">
+      <?php
+function getMp3StreamTitle($streamingUrl, $interval, $offset = 0, $headers = true)
+{
+$needle = 'StreamTitle=';
+$ua = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.110 Safari/537.36';
+$opts = [
+'http' => [
+'method' => 'GET',
+'header' => 'Icy-MetaData: 1',
+'user_agent' => $ua
+]
+];
+if (($headers = get_headers($streamingUrl)))
+foreach ($headers as $h)
+if (strpos(strtolower($h), 'icy-metaint') !== false && ($interval = explode(':', $h)[1]))
+break;
+$context = stream_context_create($opts);
+if ($stream = fopen($streamingUrl, 'r', false, $context))
+{
+while($buffer = stream_get_contents($stream, $interval, $offset)) {
+if (strpos($buffer, $needle) !== false)
+{
+fclose($stream);
+$title = explode($needle, $buffer)[1];
+return substr($title, 1, strpos($title, ';') - 2);
+}
+$offset += $interval;
+}
+}
+}
+print(getMp3StreamTitle('http://yoursite.com:port/mount', 8192));
+?>
+    </article>
+		<article id="tunein" class="container">
+			<h2>Listen Now!</h2>
+			<p>Click the <strong>play</strong> button in the player or click this <a href="https://play.broadcasteralliance.org/amcountry" target="_blank" rel="noopener">Mobile Link</a> to start listening to <em>America's Country</em>!</p>
+			<iframe src="https://tunein.com/embed/player/s126270/?background=dark" style="width:95%; height:100px; border:none; margin:10px;" class="center"></iframe>
+		</article>
+
+		<article id="services" class="container">
+			<h2>Station Listing Services</h2>
+			<p><strong>NOTE:</strong> Some of these links may open a page that will start playing automatically.</p>
+				<ul class="twocolumns">
+				<li><a href="https://go.audacy.com/americascountry/partner" target="_blank" rel="noopener">Audacy Radio</a></li>
+				<li><a href="https://getme.radio/americascountry" target="_blank" rel="noopener">Get Me Radio</a></li>
+				<li><a href="https://tunein.com/radio/Americas-Country-s126270/" target="_blank" rel="noopener">TuneIn Radio</a></li>
+				<li><a href="https://streema.com/radios/Americas_Country" target="_blank" rel="noopener">Streema</a></li>
+				<li><a href="https://openradio.app/station/america-s-country-m2gk4jpk" target="_blank" rel="noopener">OpenRadio.app</a></li>
+				<li><a href="https://www.streamfinder.com/streaming-radio/americas-country/30477/" target="_blank" rel="noopener">StreamFinder</a></li>
+				<li><a href="https://radio.garden/live/salt-lake-city-ut/america-s-country/" target="_blank" rel="noopener">Radio Garden</a></li>
+				<li><a href="https://raddio.net/84977-americas-country/" target="_blank" rel="noopener">Raddio.net</a></li>
+				<li><a href="https://onlineradiobox.com/us/americascountry/" target="_blank" rel="noopener">Online Radio Box</a></li>
+				<li><a href="https://www.radioplug.co.uk/channel/Americas-Country" target="_blank" rel="noopener">RadioPlug</a></li>
+				<li><a href="https://www.jawaradio.com/radio/international-radio/america%E2%80%99s-country" target="_blank" rel="noopener">JAWA Radio</a></li>
+				<li><a href="https://www.listenonlineradio.com/usa/americas-country" target="_blank" rel="noopener">ListenOnline Radio</a></li>
+				<li><a href="https://www.liveradio.ie/stations/americas-country" target="_blank" rel="noopener">LiveRadio IE</a></li>
+				<li><a href="https://www.liveradio.uk/stations/americas-country" target="_blank" rel="noopener">LiveRadio UK</a></li>
+				<li><a href="https://radiostationusa.fm/online/americas-country" target="_blank" rel="noopener">RadioStation USA</a></li>
+				<li><a href="https://mytuner-radio.com/radio/americas-country-439609/" target="_blank" rel="noopener">myTuner Radio</a></li>
+				<li><a href="https://radiovary.com/radio/Americas-Country-hQ650731948" target="_blank" rel="noopener">RadioVary</a></li>
+				<li><a href="https://appradiofm.com/radio/America's-Country-Salt-Lake-City-Utah-(UT)-USA-9iia2" target="_blank" rel="noopener">RadioFM</a></li>
+				<li><a href="https://www.liveonlineradio.net/usa/americas-country.htm" target="_blank" rel="noopener">Live Online Radio</a></li>
+				<li><a href="https://forwardmystream.com/station/americascountry" target="_blank" rel="noopener">Forward My Stream</a></li>
+				<li><a href="https://radioonlinelive.com/usa/americas-country/" target="_blank" rel="noopener">Radio Online Live</a></li>
+				</ul>
+		</article>
+
+		<article id="mobile" class="container">
+			<h2>Listen on your Mobile Device</h2>
+			<p>Listen on your device with these apps. Search for <em>America's Country</em>.</p>
+			<ul>
+			<li><strong>Audacy</strong> for Android: <a href="https://bit.ly/3Rj8K2k" target="_blank" rel="noopener">https://bit.ly/3Rj8K2k</a></li>
+			<li><strong>TuneIn</strong> for Android: <a href="https://bit.ly/QYkmbU" target="_blank" rel="noopener">https://bit.ly/QYkmbU</a></li>
+			<li><strong>XiiaLive</strong> for Android: <a href="https://bit.ly/UA9PCA" target="_blank" rel="noopener">https://bit.ly/UA9PCA</a></li>
+			<li><strong>AmpHaven</strong> for Android: <a href="https://bit.ly/3iPd9sW" target="_blank" rel="noopener">https://bit.ly/3iPd9sW</a></li>
+			</ul>
+			<ul>
+			<li><strong>Audacy</strong> for iOS: <a href="https://apple.co/3x4SpXx" target="_blank" rel="noopener">https://apple.co/3x4SpXx</a></li>
+			<li><strong>TuneIn</strong> for iOS: <a href="https://apple.co/32V2zv7" target="_blank" rel="noopener">https://apple.co/32V2zv7</a></li>
+			<li><strong>XiiaLive</strong> for iOS: <a href="https://apple.co/3deG0UG" target="_blank" rel="noopener">https://apple.co/3deG0UG</a></li>
+			<li><strong>nRadio</strong> for iOS: <a href="https://apple.co/3iGyogH" target="_blank" rel="noopener">https://apple.co/3iGyogH</a></li>
+			<li><strong>StreamS HiFi Radio</strong> for iOS: <a href="https://apple.co/3hFTrOP" target="_blank" rel="noopener">https://apple.co/3hFTrOP</a> ($4.99 usd)</li>
+			</ul>
+		</article>
+
+		<article id="smart" class="container">
+			<h2>Listen on your Smart Speaker</h2>
+			<p>You can also listen to <em>America's Country</em> on your Echo, Nest, or HomePod.</p>
+			<ul>
+			<li>"Alexa, play America's Country on TuneIn Radio."</li>
+			<li>"OK, Google, play America's Country."</li>
+			<li>"Hey Siri, play America's Country."</li>
+			</ul>
+		</article>
+
+		<article id="twitter" class="container">
+			<h2>Recent Social Media Posts</h2>
+			<p>Be sure to follow us on <a href="https://x.com/americascountry">X</a>, <a href="https://www.facebook.com/americascountry">Facebook</a>, <a href="https://www.instagram.com/americascountry">Instagram</a>, and <a href="https://www.threads.net/@americascountry">Threads</a>!</p>
+			<!-- <div style="margin: auto; width: 500px;"><a class="twitter-timeline" data-width="500" data-height="500" href="https://twitter.com/AmericasCountry?ref_src=twsrc%5Etfw">Tweets by AmericasCountry</a></div> -->
+			<div class="center"><div class="fb-page" data-href="https://www.facebook.com/americascountry" data-tabs="timeline" data-width="500" data-height="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="flase" data-show-facepile="false"><blockquote cite="https://www.facebook.com/americascountry" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/americascountry">America&#039;s Country</a></blockquote></div></div>
+		</article>
+
+	</main>
+
+	<footer id="foot" class="footer">
+		<p>Thank you for visiting <em>America's Country</em>! All Rights Reserved. Copyright &copy;2011-<script>document.write(new Date().getFullYear());</script> SuiteSounds Entertainment, LLC.</p>
+		<div class="fb-like" data-href="https://americascountry.us" data-width="30" data-layout="box_count" data-action="like" data-size="small" data-share="true"></div>
+		<p><a href="https://stationplaylist.com" target="_blank" rel="noopener"><img src="https://marinifamily.files.wordpress.com/2022/11/splpowered.png" alt="America's Country is powered by Station Playlist" title="Powered by Station Playlist"></a></p>
+		<form action="https://www.paypal.com/donate" method="post" target="_top">
+			<input type="hidden" name="hosted_button_id" value="2NTTXNAYSJDCQ" />
+			<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+		</form>
+
+	</footer>
+
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0&appId=1543598645802173&autoLogAppEvents=1" nonce="olsl19uB"></script>
+	<!-- <script>window.twttr = (function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0],t = window.twttr || {};if (d.getElementById(id)) return t;js = d.createElement(s);js.id = id;js.src = "https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f){t._e.push(f);};return t;}(document, "script", "twitter-wjs"));</script> -->
+</body>
+
+</html>
