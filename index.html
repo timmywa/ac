@@ -131,6 +131,22 @@
 		<p>Thank you for visiting <em>America's Country</em>! All Rights Reserved. Copyright &copy;2011-<script>document.write(new Date().getFullYear());</script> SuiteSounds Entertainment, LLC.</p>
 		<div class="fb-like" data-href="https://americascountry.us" data-width="30" data-layout="box_count" data-action="like" data-size="small" data-share="true"></div>
 		<p><a href="https://stationplaylist.com" target="_blank" rel="noopener"><img src="https://marinifamily.files.wordpress.com/2022/11/splpowered.png" alt="America's Country is powered by Station Playlist" title="Powered by Station Playlist"></a></p>
+		<div id="donate-button-container">
+		<div id="donate-button"></div>
+			<script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+			<script>
+			PayPal.Donation.Button({
+			env:'production',
+			hosted_button_id:'AG8ADTWQ3VKRE',
+			image: {
+			src:'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
+			alt:'Donate with PayPal button',
+			title:'PayPal - The safer, easier way to pay online!',
+			}
+			}).render('#donate-button');
+			</script>
+		</div>
+
 		<form action="https://www.paypal.com/donate" method="post" target="_top">
 			<input type="hidden" name="hosted_button_id" value="2NTTXNAYSJDCQ">
 			<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button">
