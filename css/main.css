@@ -87,7 +87,7 @@ em, i {font-style: italic;}
 ::-moz-selection {background: #F6CF74; color: #fff;}
 ::selection {background: #F6CF74; color: #fff;}
 
-iframe {margin: 0; scrolling: no; border: 0;}
+iframe {margin: 0; scrolling: no; border: none;}
 
 /* Lists */
 ul {
