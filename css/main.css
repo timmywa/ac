@@ -28,11 +28,12 @@
   .container {
   	background: #b7d2f7;
   	width: 100%;
-    max-width: 660px;
+	max-width: 660px;
   	clear: both;
   	padding: 0;
   	margin: 0 auto;
   	text-align: left;
+	overflow: hidden;
 }
   
 /* img {max-width: 95%;} */
