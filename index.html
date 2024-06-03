@@ -131,7 +131,7 @@
 	</main>
 
 	<footer id="foot" class="footer">
-		<p>Thank you for visiting <em>America's Country</em>! All Rights Reserved. Copyright &copy;2011-<script>document.write(new Date().getFullYear());</script> SuiteSounds Entertainment, LLC.</p>
+		<p>Thank you for visiting <em>America's Country</em>! All Rights Reserved. Copyright &copy;2011-<span id="current-year">2024</span> SuiteSounds Entertainment, LLC.</p>
 		<div class="fb-like" data-href="https://americascountry.us" data-width="30" data-layout="box_count" data-action="like" data-size="small" data-share="true"></div>
 		<p><a href="https://stationplaylist.com" target="_blank" rel="noopener"><img src="images/splpowered.png" alt="America's Country is powered by Station Playlist" title="Powered by Station Playlist" width="88" height="31"></a></p>
 		<div id="donate-button-container">
@@ -156,7 +156,8 @@
 
 	<div id="fb-root"></div>
 	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0&appId=1543598645802173" nonce="whFdgcU6"></script>
-
+	<script async defer window.addEventListener('load', onLoad); function onLoad () {const currentYearEl = document.getElementById('current-year'); if (currentYearEl) {const currentYear = new Date().getFullYear(); currentYearEl.textContent = currentYear;}}</script>
+	
 </body>
 
 </html>
