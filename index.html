@@ -197,22 +197,21 @@ s.src = "//ecdn.onlineradiobox.com/js/pwidget2.min.235ca64e.js";
 		<div class="fb-like" data-href="https://americascountry.us" data-width="30" data-layout="box_count" data-action="like" data-size="small" data-share="true"></div>
 		<p><a href="https://stationplaylist.com" target="_blank" rel="noopener"><img src="images/splpowered.png" alt="America's Country is powered by Station Playlist" title="Powered by Station Playlist" width="88" height="31"></a></p>
 		<div id="donate-button-container">
-		<div id="donate-button"></div>
-			<script async defer src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js"></script>
-			<script> async defer
-			PayPal.Donation.Button({
-			env:'production',
-			hosted_button_id:'AG8ADTWQ3VKRE',
-			image: {
-			src:'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
-			alt:'Donate with PayPal button',
-			title:'PayPal - The safer, easier way to pay online!',
-			width:"147",
-			height:"47"
-			}
-			}).render('#donate-button');
-			</script>
+			<div id="donate-button"></div>
+				<script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+				<script>
+				PayPal.Donation.Button({
+				env:'production',
+				hosted_button_id:'AG8ADTWQ3VKRE',
+				image: {
+				src:'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
+				alt:'Donate with PayPal button',
+				title:'PayPal - The safer, easier way to pay online!',
+				}
+				}).render('#donate-button');
+				</script>
 		</div>
+
 
 	</footer>
 
