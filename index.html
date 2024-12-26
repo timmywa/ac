@@ -193,7 +193,7 @@ s.src = "//ecdn.onlineradiobox.com/js/pwidget2.min.235ca64e.js";
 		<p><a href="https://stationplaylist.com" target="_blank" rel="noopener"><img src="images/splpowered.png" alt="America's Country is powered by Station Playlist" title="Powered by Station Playlist" width="88" height="31"></a></p>
 		<div id="donate-button-container">
 			<div id="donate-button"></div>
-				<script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+				<script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js"></script>
 				<script>
 				PayPal.Donation.Button({
 				env:'production',
@@ -206,20 +206,17 @@ s.src = "//ecdn.onlineradiobox.com/js/pwidget2.min.235ca64e.js";
 				}).render('#donate-button');
 				</script>
 		</div>
-
-
 	</footer>
 
 	<div id="fb-root"></div>
 	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0&appId=1543598645802173" nonce="whFdgcU6"></script>
-	<script> window.addEventListener('load', onLoad); function onLoad () {const currentYearEl = document.getElementById('current-year'); if (currentYearEl) {const currentYear = new Date().getFullYear(); currentYearEl.textContent = currentYear;}}</script>
+	<script>window.addEventListener('load', onLoad); function onLoad () {const currentYearEl = document.getElementById('current-year'); if (currentYearEl) {const currentYear = new Date().getFullYear(); currentYearEl.textContent = currentYear;}}</script>
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-7PSR0H57RS"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
 	  gtag('js', new Date());
-	
 	  gtag('config', 'G-7PSR0H57RS');
 	</script>
 </body>
