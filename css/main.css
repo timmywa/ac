@@ -89,6 +89,14 @@ em, i {font-style: italic;}
 
 iframe {margin: 0; overflow: hidden; border: none;}
 
+/* Style for your header image */
+.header-image {
+    max-width: 100%; /* Ensures the image never exceeds its container's width */
+    height: auto;    /* Automatically adjusts height to maintain aspect ratio */
+    display: block;  /* Removes extra space below the image */
+    margin: 0 auto;  /* Centers the image if its container is wider than the image */
+}
+
 /* Lists */
 ul {
   list-style: outside disc;
