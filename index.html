@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>America's Country - Listen Live</title>
 
     <meta name="description" content="America's Country is an internet radio station that plays Three Decades of Country! This page will help you discover many ways to listen.">
@@ -24,7 +23,6 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@americascountry">
     <meta name="twitter:creator" content="@timmywa">
-    <meta name="twitter:domain" content="americascountry.us">
     <meta name="twitter:url" content="https://americascountry.us/">
     <meta name="twitter:title" content="America's Country - Listen Live">
     <meta name="twitter:description" content="America's Country is an internet radio station that plays Three Decades of Country!">
@@ -32,18 +30,13 @@
     <meta name="twitter:image:alt" content="America's Country in Stylized Text with a Cowboy Hat">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="dns-prefetch" href="//onlineradiobox.com">
     <link rel="preconnect" href="https://onlineradiobox.com" crossorigin>
-    <link rel="preconnect" href="https://www.facebook.com" crossorigin>
-    <link rel="dns-prefetch" href="//connect.facebook.net">
     <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
     <link rel="preconnect" href="https://www.paypalobjects.com" crossorigin>
 
     <link rel="preload" href="css/main.css" as="style">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css" integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="css/main.css" media="all">
     <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7092128557292662" crossorigin="anonymous"></script>
@@ -219,10 +212,10 @@ s.src = "//ecdn.onlineradiobox.com/js/pwidget2.min.235ca64e.js";
 
 	<div id="fb-root"></div>
 	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v23.0&appId=1543598645802173"></script>
-	<script>window.addEventListener('load', onLoad); function onLoad () {const currentYearEl = document.getElementById('current-year'); if (currentYearEl) {const currentYear = new Date().getFullYear(); currentYearEl.textContent = currentYear;}}</script>
+	<script defer>window.addEventListener('load', onLoad); function onLoad () {const currentYearEl = document.getElementById('current-year'); if (currentYearEl) {const currentYear = new Date().getFullYear(); currentYearEl.textContent = currentYear;}}</script>
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-7PSR0H57RS"></script>
-	<script>
+	<script defer>
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
 	  gtag('js', new Date());
