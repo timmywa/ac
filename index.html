@@ -195,19 +195,20 @@ s.src = "//ecdn.onlineradiobox.com/js/pwidget2.min.235ca64e.js";
 		<p><a href="https://stationplaylist.com" target="_blank" rel="noopener"><img src="images/splpowered.png" alt="America's Country is powered by Station Playlist" title="Powered by Station Playlist" aria-label="Powered by Station Playlist" width="88" height="31"></a><br/>
 		<div id="donate-button-container">
 			<div id="donate-button"></div>
-				<script defer src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js"></script>
-				<script>
-				PayPal.Donation.Button({
-				env:'production',
-				hosted_button_id:'AG8ADTWQ3VKRE',
-				image: {
-				src:'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
-				alt:'Donate with PayPal button',
-				title:'PayPal - The safer, easier way to pay online!',
-				}
-				}).render('#donate-button');
-				</script>
-		</div></p>
+			<script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+			<script>
+			PayPal.Donation.Button({
+			env:'production',
+			hosted_button_id:'AG8ADTWQ3VKRE',
+			image: {
+			src:'https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif',
+			alt:'Donate with PayPal button',
+			title:'PayPal - The safer, easier way to pay online!',
+			}
+			}).render('#donate-button');
+			</script>
+			</div>
+		</p>
 	</footer>
 
 	<div id="fb-root"></div>
