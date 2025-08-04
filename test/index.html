@@ -184,6 +184,13 @@
             list-style: none;
         }
 
+        /* Exclude OnlineRadioBox player lists from grid formatting */
+        .orbPpl, .orbPpl li {
+            display: block !important;
+            grid-template-columns: none !important;
+            gap: 0 !important;
+        }
+
         ul:not(.twocolumns) li {
             background: rgba(139, 69, 19, 0.1);
             padding: 12px 15px;
