@@ -107,8 +107,8 @@
         article {
             background: rgba(254, 253, 248, 0.97);
             color: var(--dark-brown);
-            padding: 30px;
-            margin-bottom: 30px;
+            padding: 20px;
+            margin-bottom: 20px;
             border-radius: 15px;
             box-shadow: 0 8px 32px var(--shadow);
             border: 2px solid var(--rust-red);
@@ -278,15 +278,22 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .container {
-                padding: 15px;
+                padding: 10px;
             }
 
             article {
-                padding: 20px;
+                padding: 15px;
+                margin-bottom: 15px;
             }
 
             .twocolumns {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            ul:not(.twocolumns) {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
             }
 
             .social-links {
