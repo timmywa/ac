@@ -250,13 +250,19 @@
             color: var(--cream);
         }
 
-        /* Social Media Links */
+/* Social Media Links */
         .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin: 20px 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 400px;
+            margin: 20px auto;
+            justify-items: center;
+        }
+        
+        .social-links a:last-child {
+            grid-column: 1 / -1;
+            justify-self: center;
         }
 
         .social-links a {
