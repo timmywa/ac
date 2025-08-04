@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,195 +32,504 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://onlineradiobox.com" crossorigin>
-    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
     <link rel="preconnect" href="https://www.paypalobjects.com" crossorigin>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css" integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rye&family=Bree+Serif:wght@400&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-brown: #8B4513;
+            --dark-brown: #654321;
+            --leather-tan: #D2B48C;
+            --cream: #F5F5DC;
+            --rust-red: #CD853F;
+            --deep-red: #A0522D;
+            --gold: #DAA520;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Merriweather', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #654321 100%);
+            background-attachment: fixed;
+            color: var(--cream);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px var(--shadow);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        header img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        header img:hover {
+            transform: scale(1.02);
+        }
+
+        header h1 {
+            font-family: 'Rye', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            color: var(--gold);
+            text-shadow: 3px 3px 6px var(--shadow);
+            margin: 20px 0 0 0;
+            letter-spacing: 2px;
+        }
+
+        /* Article Cards */
+        article {
+            background: rgba(245, 245, 220, 0.95);
+            color: var(--dark-brown);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px var(--shadow);
+            border: 2px solid var(--rust-red);
+            position: relative;
+            overflow: hidden;
+        }
+
+        article::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--rust-red), var(--gold));
+        }
+
+        article h2 {
+            font-family: 'Bree Serif', serif;
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            color: var(--primary-brown);
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            border-bottom: 2px solid var(--rust-red);
+            padding-bottom: 10px;
+        }
+
+        /* Player Section */
+        #tunein {
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.1), rgba(245, 245, 220, 0.95));
+        }
+
+        /* Links and Lists */
+        a {
+            color: var(--deep-red);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-brown);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .twocolumns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .twocolumns li {
+            background: rgba(139, 69, 19, 0.1);
+            padding: 12px 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--rust-red);
+            transition: all 0.3s ease;
+        }
+
+        .twocolumns li:hover {
+            background: rgba(139, 69, 19, 0.2);
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        ul:not(.twocolumns) {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul:not(.twocolumns) li {
+            background: rgba(139, 69, 19, 0.1);
+            padding: 12px 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--rust-red);
+            transition: all 0.3s ease;
+        }
+
+        ul:not(.twocolumns) li:hover {
+            background: rgba(139, 69, 19, 0.2);
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Smart Speaker Commands */
+        #smart ul li {
+            background: rgba(218, 165, 32, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            font-style: italic;
+            font-weight: 500;
+            border-left: 4px solid var(--gold);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--cream);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            border-top: 4px solid var(--gold);
+        }
+
+        footer p {
+            margin-bottom: 15px;
+        }
+
+        footer a {
+            color: var(--gold);
+        }
+
+        footer a:hover {
+            color: var(--cream);
+        }
+
+        /* Social Media Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            background: var(--rust-red);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--dark-brown);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            article {
+                padding: 20px;
+            }
+
+            .twocolumns {
+                grid-template-columns: 1fr;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        article {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        article:nth-child(2) { animation-delay: 0.1s; }
+        article:nth-child(3) { animation-delay: 0.2s; }
+        article:nth-child(4) { animation-delay: 0.3s; }
+        article:nth-child(5) { animation-delay: 0.4s; }
+        article:nth-child(6) { animation-delay: 0.5s; }
+
+        /* Player Enhancement */
+        .player-wrapper {
+            background: rgba(139, 69, 19, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid var(--rust-red);
+        }
+
+        /* Note styling */
+        .note {
+            background: rgba(218, 165, 32, 0.2);
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+
+        strong {
+            color: var(--primary-brown);
+        }
+
+        em {
+            color: var(--deep-red);
+            font-style: italic;
+        }
+    </style>
 
     <script defer async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7092128557292662" crossorigin="anonymous"></script>
 </head>
 
-<body id="base" class="body">
+<body>
+    <main class="container">
+        <header>
+            <a href="https://americascountry.us">
+                <img src="images/Site%20Banner-option3_1_1.webp" fetchpriority="high" alt="America's Country in Stylized Text with a Cowboy Hat on an American Flag Background" aria-label="America's Country" title="America's Country">
+            </a>
+            <h1>America's Country<br>Three Decades of Country!</h1>
+        </header>
 
-	<main id="main" class="container">
+        <article id="tunein">
+            <h2>🎵 Listen Now!</h2>
+            <p>Click the <strong>play</strong> button in the player below to start listening to <em>America's Country</em>!</p>
+            
+            <div class="player-wrapper">
+                <!--OnlineRadioBox Player widget-->
+                <div class="orbP cmpct" id="orb_player_4f435071fd0d26b9" vlm="0.8">
+                <style media="screen">
+                    /* General */
+                  .orbP{position:relative;box-sizing:border-box;overflow:hidden;font-weight:normal;border:1px solid transparent;user-select:none;text-align:left}.orbP br,.orbP>br{display:none!important;}.orbP p,.orbP>p{margin:0!important;padding:0!important;line-height:normal!important;font-size:inherit!important}.orbPh{display:block;position:absolute;z-index:100;top:50%;margin-top:-12px!important;right:10px;width:21px!important;text-decoration:none!important;cursor:pointer}.orbPh>img{margin:0!important;border:none;height:24px!important;-webkit-filter:drop-shadow(2px 2px 0 rgba(47,99,160,.2));filter:drop-shadow(2px 2px 0 rgba(47,99,160,.2))}.orbPt{text-decoration:none!important}.orbPti{float:left;margin:0 10px 0 0!important;vertical-align:top!important;height:48px!important;width:89px!important;border:none!important;border-radius:2px!important;opacity:1!important}.orbPtn{display:block;margin-right:52px;line-height:24px!important;font-size:17px!important;font-weight:bold!important;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.orbPtt{display:block;margin-right:52px;text-decoration:none!important;line-height:24px!important;font-size:12px!important;opacity:.85;transition:opacity .2s;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.orbPtt:hover{opacity:1}.orbPp,.orbPs{float:left!important;margin:0 10px 0 0!important;padding:0!important;height:48px!important;width:48px!important;line-height:48px!important;border-radius:2px!important;border:none!important;text-align:center!important;cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none!important;}.orbPp::before,.orbPs::before{display:inline-block;vertical-align:middle;content:'';width:0;height:0;border-style:solid}.orbPp::before{border-width:16px 0 16px 26px}.orbPs::before{border-width:16px}.orbPp:hover,.orbPs:hover{-webkit-transform:scale(1.087);transform:scale(1.087)}.orbPhc{position:relative!important;box-sizing:border-box!important;padding:10px!important;overflow:hidden}
+                    /* Playlist */
+                  .orbPpl{position:relative;overflow:auto;overflow-x:hidden;overflow-y:auto;margin:0!important;padding:0!important;list-style:none!important}.orbPpli{box-sizing:border-box;margin:0!important;padding:0 10px!important;list-style:none!important;background-image:none;float:none!important;height: auto!important}.orbPpli>a,.orbPpli>span{display:block!important;padding:0!important;margin:0!important;height:auto!important;font-weight:normal!important;text-decoration:none!important;line-height:32px!important;font-size:14px!important;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;transition:color .125s;border:none !important}.orbPpli>a:hover,.orbPpli>span:hover{background:transparent!important}.orbPpli>a>time,.orbPpli>span>time{display:inline-block;font-size:12px!important;width:3em!important}.orbPpli+li{border-style:solid!important;border-width:1px 0 0!important}
+                    /* Volume */
+                    .orbV{position:absolute;z-index:1!important;width:24px!important;right:48px!important;top:0!important;bottom:0!important;line-height:1!important;overflow:hidden!important;transition:width .3s}.orbV:hover{width:160px!important}.orbVC{position:absolute!important;height:18px!important;left:24px!important;top:50%!important;margin:-9px 0 0 11px!important}.orbVC::after{display:block;content:'';margin-top:4px;width:0;height:0;border-style:solid;border-width:4px 100px 4px 0;opacity:.33}.orbVCs{position:absolute!important;z-index:2!important;top:0!important;width:18px!important;height:18px!important;border-radius:50%!important;cursor:ew-resize!important;box-shadow:0 6px 8px -2px rgba(0,9,18,0.36)}.orbVb{position:absolute!important;width:24px!important;height:24px!important;top:50%!important;left:0!important;margin-top:-12px;white-space:nowrap!important;cursor:pointer;transition:opacity .3s}.orbVb::before{display:inline-block;content:'';vertical-align:middle;width:7px;height:12px}.orbVb::after{display:inline-block;content:'';vertical-align:middle;border-width:12px 12px 12px 0;border-style:solid;height:0;width:0;margin-left:-6px}.orbV:hover .orbVb{opacity:.33!important;cursor:default}.orbVb>._m{display: block!important;width:7px!important;height:18px!important;position:absolute!important;top:50%;margin-top:-9px!important;right:0; overflow: hidden!important;}.orbVb>._m::before{display:block;content:'';position:absolute;right:0;top:50%;width:28px;height:24px;margin-top:-12px;border:1px solid;border-radius:50%}.orbVb>._m::after{display:block;content:'';position:absolute;right:4px;top:50%;width:14px;height:14px;margin-top:-7px;border:1px solid;border-radius:50%}
+                    /* Flags*/
+                  .orbF{padding:0 0 10px 10px!important;border-top:1px solid;display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row nowrap!important;flex-flow:row nowrap!important}
+                  .orbFl{margin:0!important;padding:0!important;list-style:none!important}
+                  .orbFli,.orbFh{display:inline-block!important;vertical-align:top!important;line-height:18px!important;white-space:nowrap!important;margin:10px 7px 0 0!important;padding:0 6px 0 0!important;text-indent:0!important;list-style:none!important;font-size:11px!important;text-align:right}
+                  .orbFlif{float:left!important;width:27px!important;height:18px!important;margin-right:5px!important}
+                  .orbFhi{position:relative!important;display:inline-block!important;vertical-align:baseline!important;width:8px!important;height:9px!important;margin:0 8px 0 5px!important;border-style:solid!important;border-width:2px 1px 0 1px!important;border-radius:5px 5px 0 0!important;opacity:.5}
+                  .orbFhi::before,.orbFhi::after{display:block;content:'';position:absolute;bottom:-2px;width:0;height:3px;border-style:solid;border-width:2px;border-radius:3px}
+                  .orbFhi::before{left:-4px}.orbFhi::after{right:-4px}
+                    /* Multiselect */
+                  .orbPm{margin:0!important;padding:0!important;list-style:none!important}
+                  .orbPmi{position:relative;margin:0!important;padding:10px!important;list-style:none!important;border:dotted rgba(204,204,204,0.5);border-width:1px 0 0;font-size:12px!important;overflow:hidden;white-space:nowrap;line-height:1!important;cursor:pointer}
+                  .orbPmi::before{display:block;content:'';position:absolute;z-index:1;top:50%;right:10px;margin-top:-8px;width:0;height:0;border-style:solid;border-width:8px 0 8px 13px;opacity:.5;filter:alpha(opacity=50);transition:opacity .2s;}
+                  .orbPmi:hover::before{opacity:1;filter:alpha(opacity=100)}
+                  .orbPmi::after{display:block;content:'';position:absolute;top:0;bottom:0;right:0;width:36px}
+                  .orbPmii{display:inline-block;vertical-align:middle;margin-right:10px;width:30px;height:16px;border:none!important;border-radius:2px!important}
+                  .orbPmin{display:inline-block;vertical-align:middle;}
 
-		<header id="banner" class="container">
-			<a href="https://americascountry.us"><img src="https://americascountry.us/images/Site%20Banner-option3_1_1.webp" fetchpriority="high" alt="America's Country in Stylized Text with a Cowboy Hat on an American Flag Background" aria-label="America's Country" title="America's Country" class="center"></a>
-			<h1 class="center">America's Country<br>Three Decades of Country!</h1>
-		</header>
-	
-		<article id="tunein" class="container">
-			<h2>Listen Now!</h2>
-			<p>Click the <strong>play</strong> button in the player below <!-- or click this <a href="https://play.broadcasteralliance.org/amcountry" target="_blank" rel="noopener">Mobile Link</a> -->to start listening to <em>America's Country</em>!</p>
-<!--OnlineRadioBox Player widget-->
-<div class="orbP cmpct" id="orb_player_4f435071fd0d26b9" vlm="0.8">
-<style media="screen">
-    /* General */
-  .orbP{position:relative;box-sizing:border-box;overflow:hidden;font-weight:normal;border:1px solid transparent;user-select:none;text-align:left}.orbP br,.orbP>br{display:none!important;}.orbP p,.orbP>p{margin:0!important;padding:0!important;line-height:normal!important;font-size:inherit!important}.orbPh{display:block;position:absolute;z-index:100;top:50%;margin-top:-12px!important;right:10px;width:21px!important;text-decoration:none!important;cursor:pointer}.orbPh>img{margin:0!important;border:none;height:24px!important;-webkit-filter:drop-shadow(2px 2px 0 rgba(47,99,160,.2));filter:drop-shadow(2px 2px 0 rgba(47,99,160,.2))}.orbPt{text-decoration:none!important}.orbPti{float:left;margin:0 10px 0 0!important;vertical-align:top!important;height:48px!important;width:89px!important;border:none!important;border-radius:2px!important;opacity:1!important}.orbPtn{display:block;margin-right:52px;line-height:24px!important;font-size:17px!important;font-weight:bold!important;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.orbPtt{display:block;margin-right:52px;text-decoration:none!important;line-height:24px!important;font-size:12px!important;opacity:.85;transition:opacity .2s;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.orbPtt:hover{opacity:1}.orbPp,.orbPs{float:left!important;margin:0 10px 0 0!important;padding:0!important;height:48px!important;width:48px!important;line-height:48px!important;border-radius:2px!important;border:none!important;text-align:center!important;cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none!important;}.orbPp::before,.orbPs::before{display:inline-block;vertical-align:middle;content:'';width:0;height:0;border-style:solid}.orbPp::before{border-width:16px 0 16px 26px}.orbPs::before{border-width:16px}.orbPp:hover,.orbPs:hover{-webkit-transform:scale(1.087);transform:scale(1.087)}.orbPhc{position:relative!important;box-sizing:border-box!important;padding:10px!important;overflow:hidden}
-    /* Playlist */
-  .orbPpl{position:relative;overflow:auto;overflow-x:hidden;overflow-y:auto;margin:0!important;padding:0!important;list-style:none!important}.orbPpli{box-sizing:border-box;margin:0!important;padding:0 10px!important;list-style:none!important;background-image:none;float:none!important;height: auto!important}.orbPpli>a,.orbPpli>span{display:block!important;padding:0!important;margin:0!important;height:auto!important;font-weight:normal!important;text-decoration:none!important;line-height:32px!important;font-size:14px!important;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;transition:color .125s;border:none !important}.orbPpli>a:hover,.orbPpli>span:hover{background:transparent!important}.orbPpli>a>time,.orbPpli>span>time{display:inline-block;font-size:12px!important;width:3em!important}.orbPpli+li{border-style:solid!important;border-width:1px 0 0!important}
-    /* Volume */
-    .orbV{position:absolute;z-index:1!important;width:24px!important;right:48px!important;top:0!important;bottom:0!important;line-height:1!important;overflow:hidden!important;transition:width .3s}.orbV:hover{width:160px!important}.orbVC{position:absolute!important;height:18px!important;left:24px!important;top:50%!important;margin:-9px 0 0 11px!important}.orbVC::after{display:block;content:'';margin-top:4px;width:0;height:0;border-style:solid;border-width:4px 100px 4px 0;opacity:.33}.orbVCs{position:absolute!important;z-index:2!important;top:0!important;width:18px!important;height:18px!important;border-radius:50%!important;cursor:ew-resize!important;box-shadow:0 6px 8px -2px rgba(0,9,18,0.36)}.orbVb{position:absolute!important;width:24px!important;height:24px!important;top:50%!important;left:0!important;margin-top:-12px;white-space:nowrap!important;cursor:pointer;transition:opacity .3s}.orbVb::before{display:inline-block;content:'';vertical-align:middle;width:7px;height:12px}.orbVb::after{display:inline-block;content:'';vertical-align:middle;border-width:12px 12px 12px 0;border-style:solid;height:0;width:0;margin-left:-6px}.orbV:hover .orbVb{opacity:.33!important;cursor:default}.orbVb>._m{display: block!important;width:7px!important;height:18px!important;position:absolute!important;top:50%;margin-top:-9px!important;right:0; overflow: hidden!important;}.orbVb>._m::before{display:block;content:'';position:absolute;right:0;top:50%;width:28px;height:24px;margin-top:-12px;border:1px solid;border-radius:50%}.orbVb>._m::after{display:block;content:'';position:absolute;right:4px;top:50%;width:14px;height:14px;margin-top:-7px;border:1px solid;border-radius:50%}
-    /* Flags*/
-  .orbF{padding:0 0 10px 10px!important;border-top:1px solid;display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row nowrap!important;flex-flow:row nowrap!important}
-  .orbFl{margin:0!important;padding:0!important;list-style:none!important}
-  .orbFli,.orbFh{display:inline-block!important;vertical-align:top!important;line-height:18px!important;white-space:nowrap!important;margin:10px 7px 0 0!important;padding:0 6px 0 0!important;text-indent:0!important;list-style:none!important;font-size:11px!important;text-align:right}
-  .orbFlif{float:left!important;width:27px!important;height:18px!important;margin-right:5px!important}
-  .orbFhi{position:relative!important;display:inline-block!important;vertical-align:baseline!important;width:8px!important;height:9px!important;margin:0 8px 0 5px!important;border-style:solid!important;border-width:2px 1px 0 1px!important;border-radius:5px 5px 0 0!important;opacity:.5}
-  .orbFhi::before,.orbFhi::after{display:block;content:'';position:absolute;bottom:-2px;width:0;height:3px;border-style:solid;border-width:2px;border-radius:3px}
-  .orbFhi::before{left:-4px}.orbFhi::after{right:-4px}
-    /* Multiselect */
-  .orbPm{margin:0!important;padding:0!important;list-style:none!important}
-  .orbPmi{position:relative;margin:0!important;padding:10px!important;list-style:none!important;border:dotted rgba(204,204,204,0.5);border-width:1px 0 0;font-size:12px!important;overflow:hidden;white-space:nowrap;line-height:1!important;cursor:pointer}
-  .orbPmi::before{display:block;content:'';position:absolute;z-index:1;top:50%;right:10px;margin-top:-8px;width:0;height:0;border-style:solid;border-width:8px 0 8px 13px;opacity:.5;filter:alpha(opacity=50);transition:opacity .2s;}
-  .orbPmi:hover::before{opacity:1;filter:alpha(opacity=100)}
-  .orbPmi::after{display:block;content:'';position:absolute;top:0;bottom:0;right:0;width:36px}
-  .orbPmii{display:inline-block;vertical-align:middle;margin-right:10px;width:30px;height:16px;border:none!important;border-radius:2px!important}
-  .orbPmin{display:inline-block;vertical-align:middle;}
+                    /* Compact General */
+                  .cmpct .orbPti{height:24px!important;width:44px!important}
+                  .cmpct .orbPtn{line-height:12px!important;font-size:12px!important}
+                  .cmpct .orbPtt{line-height:12px!important;font-size:10px!important}
+                  .cmpct .orbPp,.cmpct .orbPs{height:24px!important;width:24px!important;line-height:24px!important}
+                  .cmpct .orbPp::before{border-width:8px 0 8px 13px !important}
+                  .cmpct .orbPs::before{border-width:8px !important}
+                    /* Compact w/Playlist */
+                  .cmpct .orbPpli>a,.cmpct .orbPpli>span{line-height:24px!important;font-size:12px!important}
+                  .cmpct .orbPpli>a>time,.cmpct .orbPpli>span>time{font-size:11px!important}
 
-    /* Compact General */
-  .cmpct .orbPti{height:24px!important;width:44px!important}
-  .cmpct .orbPtn{line-height:12px!important;font-size:12px!important}
-  .cmpct .orbPtt{line-height:12px!important;font-size:10px!important}
-  .cmpct .orbPp,.cmpct .orbPs{height:24px!important;width:24px!important;line-height:24px!important}
-  .cmpct .orbPp::before{border-width:8px 0 8px 13px !important}
-  .cmpct .orbPs::before{border-width:8px !important}
-    /* Compact w/Playlist */
-  .cmpct .orbPpli>a,.cmpct .orbPpli>span{line-height:24px!important;font-size:12px!important}
-  .cmpct .orbPpli>a>time,.cmpct .orbPpli>span>time{font-size:11px!important}
+                </style>
+                <style media="screen" id="orb_player_4f435071fd0d26b9_settings">.orbP{background-color:#8B4513 !important;}/*common player background*/.orbP{border-style: solid; border-color:#DAA520 !important;border-radius:5px;}/*common player container border, radius, width*/.orbPp,.orbPs{background:#A0522D !important}/*buttons play/stop bg*/.orbPp::before{border-color:transparent transparent transparent #F5F5DC !important} /* play button color */.orbPs::before{border-color:#F5F5DC !important} /* stop button color */.orbPtn,.orbPtt,.orbPtt:hover{color:#F5F5DC !important;}/*station name & track link color*/.orbPpl{height:100px;background:#F5F5DC !important;}/*playlist height, playlist bg */.orbPpli>a,.orbPpli>a:visited,.orbPpli>span,.orbPpli>a:hover>time,.orbPpli.a>a>time,.orbPpli.a>span>time{color:#654321 !important;} /* playlist items color */.orbPpli>a:hover,.orbPpli.a>a,.orbPpli.a>span{color:#A0522D !important;} /* active-item color */.orbPpli>a>time,.orbPpli>span>time{color:#8B4513 !important;} /* item time color */.orbPpli.a{background:#D2B48C !important;} /* active-item bg */.orbPpli+li{border-color:#CD853F !important;} /* item border color */.orbV{background-color:#8B4513 !important;box-shadow:0 0 32px 32px #8B4513 !important}/*volume control color */.orbVC::after,.orbVb::after{border-color:transparent #F5F5DC transparent transparent !important}.orbVb::before,.orbVCs{background:#F5F5DC !important} /* volume bg color */.orbVb>._m::before,.orbVb>._m::after{border-color:#F5F5DC !important}.orbF{background:#F5F5DC !important;color:#654321 !important;border-color:#8B4513 !important}/* geo background & text color  */.orbFli,.orbFlif{box-shadow:0 0 1px 0 #654321 inset !important}.orbFhi,.orbFhi::before,.orbFhi::after{border-color:#654321 !important}</style>
+                <div class="orbPhc">
+                  <a class="orbPh" href="https://onlineradiobox.com/us/" title="Listen on Online Radio Box!" target="_blank"><img src="//ecdn.onlineradiobox.com/img/wl.svg" alt="Listen on Online Radio Box!"></a>
+                <audio id="orb_player_4f435071fd0d26b9_p" crossorigin="true" style="width:1px;height:1px;overflow:hidden;position:absolute;"></audio>
 
-</style>
-<style media="screen" id="orb_player_4f435071fd0d26b9_settings">.orbP{background-color:#000000 !important;}/*common player background*/.orbP{border-style: solid; border-color:#2f63a0 !important;border-radius:5px;}/*common player container border, radius, width*/.orbPp,.orbPs{background:#7094bf !important}/*buttons play/stop bg*/.orbPp::before{border-color:transparent transparent transparent #ffffff !important} /* play button color */.orbPs::before{border-color:#ffffff !important} /* stop button color */.orbPtn,.orbPtt,.orbPtt:hover{color:#ffffff !important;}/*station name & track link color*/.orbPpl{height:100px;background:#ffffff !important;}/*playlist height, playlist bg */.orbPpli>a,.orbPpli>a:visited,.orbPpli>span,.orbPpli>a:hover>time,.orbPpli.a>a>time,.orbPpli.a>span>time{color:#444444 !important;} /* playlist items color */.orbPpli>a:hover,.orbPpli.a>a,.orbPpli.a>span{color:#f07700 !important;} /* active-item color */.orbPpli>a>time,.orbPpli>span>time{color:#aeaeae !important;} /* item time color */.orbPpli.a{background:#f3f3f3 !important;} /* active-item bg */.orbPpli+li{border-color:#eeeeee !important;} /* item border color */.orbV{background-color:#000000 !important;box-shadow:0 0 32px 32px #000000 !important}/*volume control color */.orbVC::after,.orbVb::after{border-color:transparent #ffffff transparent transparent !important}.orbVb::before,.orbVCs{background:#ffffff !important} /* volume bg color */.orbVb>._m::before,.orbVb>._m::after{border-color:#ffffff !important}.orbF{background:#ffffff !important;color:#444444 !important;border-color:#000000 !important}/* geo background & text color  */.orbFli,.orbFlif{box-shadow:0 0 1px 0 #444 inset !important}.orbFhi,.orbFhi::before,.orbFhi::after{border-color:#444 !important}</style>
-<div class="orbPhc">
-  <a class="orbPh" href="https://onlineradiobox.com/us/" title="Listen on Online Radio Box!" target="_blank"><img src="//ecdn.onlineradiobox.com/img/wl.svg" alt="Listen on Online Radio Box!"></a>
-<audio id="orb_player_4f435071fd0d26b9_p" crossorigin="true" style="width:1px;height:1px;overflow:hidden;position:absolute;"></audio>
+                  <button class="orbPp" title="Listen live" country="us" alias="americascountry" stream="1"></button>
+                  <a class="orbPt" href="https://onlineradiobox.com/us/americascountry/" target="_blank">
+                    <img class="orbPti" src="//cdn.onlineradiobox.com/img/l/8/67018.v14.png" alt="America's Country">
+                    <span class="orbPtn">America's Country</span>
+                  </a>
+                  <span class="orbPtt" loading="loading" playing="playing" error="playback error" not_supported="this browser can't play it" external="Listen now (Opens in popup player)" geo_blocked="Not available in your country"></span>
+                  <div class="orbV"><div class="orbVb"><i class="_m"></i></div><div class="orbVC"><div class="orbVCs" style="left: 80%;"></div></div></div>
+                </div>
+                <ul class="orbPpl"></ul>
+                <div class="orbF" style="display:none"></div>
+                <script defer>
+                  var orbp_w = orbp_w || { lang: "en-us" };
+                  orbp_w.cmd = orbp_w.cmd || [];
+                  orbp_w.apiUrl = "https://onlineradiobox.com";
+                  orbp_w.cmd.push(function() {
+                    orbp_w.init("orb_player_4f435071fd0d26b9");
+                  });
+                  var s, t; s = document.createElement('script'); s.type = 'text/javascript';
+                s.src = "//ecdn.onlineradiobox.com/js/pwidget2.min.235ca64e.js";
+                  t = document.getElementsByTagName('script')[0]; t.parentNode.insertBefore(s, t);
+                </script>
+                </div>
+                <!--OnlineRadioBox Player widget-->
+            </div>
+        </article>
 
-  <button class="orbPp" title="Listen live" country="us" alias="americascountry" stream="1"></button>
-  <a class="orbPt" href="https://onlineradiobox.com/us/americascountry/" target="_blank">
-    <img class="orbPti" src="//cdn.onlineradiobox.com/img/l/8/67018.v14.png" alt="America’s Country">
-    <span class="orbPtn">America’s Country</span>
-  </a>
-  <span class="orbPtt" loading="loading" playing="playing" error="playback error" not_supported="this browser can't play it" external="Listen now (Opens in popup player)" geo_blocked="Not available in your country"></span>
-  <div class="orbV"><div class="orbVb"><i class="_m"></i></div><div class="orbVC"><div class="orbVCs" style="left: 80%;"></div></div></div>
-</div>
-<ul class="orbPpl"></ul>
-<div class="orbF" style="display:none"></div>
-<script defer>
-  var orbp_w = orbp_w || { lang: "en-us" };
-  orbp_w.cmd = orbp_w.cmd || [];
-  orbp_w.apiUrl = "https://onlineradiobox.com";
-  orbp_w.cmd.push(function() {
-    orbp_w.init("orb_player_4f435071fd0d26b9");
-  });
-  var s, t; s = document.createElement('script'); s.type = 'text/javascript';
-s.src = "//ecdn.onlineradiobox.com/js/pwidget2.min.235ca64e.js";
-  t = document.getElementsByTagName('script')[0]; t.parentNode.insertBefore(s, t);
-</script>
-</div>
-<!--OnlineRadioBox Player widget-->
+        <article id="services">
+            <h2>🎧 Station Listing Services</h2>
+            <div class="note">
+                <strong>NOTE:</strong> Some of these links may open a page that will start playing automatically.
+            </div>
+            <ul class="twocolumns">
+                <li><a href="https://www.audacy.com/stations/americascountry" target="_blank" rel="noopener">Audacy Radio</a></li>
+                <li><a href="https://www.radio.net/s/americascountry" target="_blank" rel="noopener">Radio.net</a></li>
+                <li><a href="https://tunein.com/radio/Americas-Country-s126270/" target="_blank" rel="noopener">TuneIn Radio</a></li>
+                <li><a href="https://streema.com/radios/Americas_Country" target="_blank" rel="noopener">Streema</a></li>
+                <li><a href="https://openradio.app/station/america-s-country-m2gk4jpk" target="_blank" rel="noopener">OpenRadio.app</a></li>
+                <li><a href="https://www.streamfinder.com/streaming-radio/americas-country/30477/" target="_blank" rel="noopener">StreamFinder</a></li>
+                <li><a href="https://radio.garden/live/salt-lake-city-ut/america-s-country/" target="_blank" rel="noopener">Radio Garden</a></li>
+                <li><a href="https://raddio.net/84977-americas-country/" target="_blank" rel="noopener">Raddio.net</a></li>
+                <li><a href="https://onlineradiobox.com/us/americascountry/" target="_blank" rel="noopener">Online Radio Box</a></li>
+                <li><a href="https://www.radioplug.co.uk/channel/Americas-Country" target="_blank" rel="noopener">RadioPlug</a></li>
+                <li><a href="https://www.jawaradio.com/radio/international-radio/america%E2%80%99s-country" target="_blank" rel="noopener">JAWA Radio</a></li>
+                <li><a href="https://www.listenonlineradio.com/usa/americas-country" target="_blank" rel="noopener">ListenOnline Radio</a></li>
+                <li><a href="https://www.liveradio.ie/stations/americas-country" target="_blank" rel="noopener">LiveRadio IE</a></li>
+                <li><a href="https://www.liveradio.uk/stations/americas-country" target="_blank" rel="noopener">LiveRadio UK</a></li>
+                <li><a href="https://radiostationusa.fm/online/americas-country" target="_blank" rel="noopener">RadioStation USA</a></li>
+                <li><a href="https://mytuner-radio.com/radio/americas-country-439609/" target="_blank" rel="noopener">myTuner Radio</a></li>
+                <li><a href="https://radiovary.com/radio/Americas-Country-hQ650731948" target="_blank" rel="noopener">RadioVary</a></li>
+                <li><a href="https://appradiofm.com/radio/America's-Country-Salt-Lake-City-Utah--UT--USA-9iia2" target="_blank" rel="noopener">RadioFM</a></li>
+                <li><a href="https://www.liveonlineradio.net/usa/americas-country.htm" target="_blank" rel="noopener">Live Online Radio</a></li>
+                <li><a href="https://forwardmystream.com/station/americascountry" target="_blank" rel="noopener">Forward My Stream</a></li>
+                <li><a href="https://radioonlinelive.com/usa/americas-country/" target="_blank" rel="noopener">Radio Online Live</a></li>
+                <li><a href="https://us-radio.com/americas-country-r7148" target="_blank" rel="noopener">US-Radio.com</a></li>
+                <li><a href="https://theonestopradio.com/radio/us-america-s-country" target="_blank" rel="noopener">OneStop Radio</a></li>
+                <li><a href="https://liveradious.com/13239-americas-country.html" target="_blank" rel="noopener">Live Radio US</a></li>
+            </ul>
+        </article>
 
-		</article>
+        <article id="mobile">
+            <h2>📱 Listen on your Mobile Device</h2>
+            <p>Listen on your device with these apps. Search for <em>America's Country</em>.</p>
+            <ul class="twocolumns">
+                <li><a href="https://bit.ly/3Rj8K2k" target="_blank" rel="noopener">Audacy for Android</a></li>
+                <li><a href="https://bit.ly/QYkmbU" target="_blank" rel="noopener">TuneIn for Android</a></li>
+                <li><a href="https://bit.ly/UA9PCA" target="_blank" rel="noopener">XiiaLive for Android</a></li>
+                <li><a href="https://bit.ly/3iPd9sW" target="_blank" rel="noopener">AmpHaven for Android</a></li>
+                <li><a href="https://apple.co/3x4SpXx" target="_blank" rel="noopener">Audacy for iOS</a></li>
+                <li><a href="https://apple.co/32V2zv7" target="_blank" rel="noopener">TuneIn for iOS</a></li>
+                <li><a href="https://apple.co/3deG0UG" target="_blank" rel="noopener">XiiaLive for iOS</a></li>
+                <li><a href="https://apple.co/3iGyogH" target="_blank" rel="noopener">nRadio for iOS</a></li>
+                <li><a href="https://apple.co/3hFTrOP" target="_blank" rel="noopener">StreamS HiFi Radio for iOS</a> ($2.99 USD)</li>
+            </ul>
+        </article>
 
-		<article id="services" class="container">
-			<h2>Station Listing Services</h2>
-			<p><strong>NOTE:</strong> Some of these links may open a page that will start playing automatically.</p>
-				<ul class="twocolumns">
-				<li><a href="https://www.audacy.com/stations/americascountry" target="_blank" rel="noopener">Audacy Radio</a></li>
-				<li><a href="https://www.radio.net/s/americascountry" target="_blank" rel="noopener">Radio.net</a></li>
-				<li><a href="https://tunein.com/radio/Americas-Country-s126270/" target="_blank" rel="noopener">TuneIn Radio</a></li>
-				<li><a href="https://streema.com/radios/Americas_Country" target="_blank" rel="noopener">Streema</a></li>
-				<li><a href="https://openradio.app/station/america-s-country-m2gk4jpk" target="_blank" rel="noopener">OpenRadio.app</a></li>
-				<li><a href="https://www.streamfinder.com/streaming-radio/americas-country/30477/" target="_blank" rel="noopener">StreamFinder</a></li>
-				<li><a href="https://radio.garden/live/salt-lake-city-ut/america-s-country/" target="_blank" rel="noopener">Radio Garden</a></li>
-				<li><a href="https://raddio.net/84977-americas-country/" target="_blank" rel="noopener">Raddio.net</a></li>
-				<li><a href="https://onlineradiobox.com/us/americascountry/" target="_blank" rel="noopener">Online Radio Box</a></li>
-				<li><a href="https://www.radioplug.co.uk/channel/Americas-Country" target="_blank" rel="noopener">RadioPlug</a></li>
-				<li><a href="https://www.jawaradio.com/radio/international-radio/america%E2%80%99s-country" target="_blank" rel="noopener">JAWA Radio</a></li>
-				<li><a href="https://www.listenonlineradio.com/usa/americas-country" target="_blank" rel="noopener">ListenOnline Radio</a></li>
-				<li><a href="https://www.liveradio.ie/stations/americas-country" target="_blank" rel="noopener">LiveRadio IE</a></li>
-				<li><a href="https://www.liveradio.uk/stations/americas-country" target="_blank" rel="noopener">LiveRadio UK</a></li>
-				<li><a href="https://radiostationusa.fm/online/americas-country" target="_blank" rel="noopener">RadioStation USA</a></li>
-				<li><a href="https://mytuner-radio.com/radio/americas-country-439609/" target="_blank" rel="noopener">myTuner Radio</a></li>
-				<li><a href="https://radiovary.com/radio/Americas-Country-hQ650731948" target="_blank" rel="noopener">RadioVary</a></li>
-				<li><a href="https://appradiofm.com/radio/America's-Country-Salt-Lake-City-Utah--UT--USA-9iia2" target="_blank" rel="noopener">RadioFM</a></li>
-				<li><a href="https://www.liveonlineradio.net/usa/americas-country.htm" target="_blank" rel="noopener">Live Online Radio</a></li>
-				<li><a href="https://forwardmystream.com/station/americascountry" target="_blank" rel="noopener">Forward My Stream</a></li>
-				<li><a href="https://radioonlinelive.com/usa/americas-country/" target="_blank" rel="noopener">Radio Online Live</a></li>
-				<li><a href="https://us-radio.com/americas-country-r7148" target="_blank" rel="noopener">US-Radio.com</a></li>
-				<li><a href="https://theonestopradio.com/radio/us-america-s-country" target="_blank" rel="noopener">OneStop Radio</a></li>
-				<li><a href="https://liveradious.com/13239-americas-country.html" target="_blank" rel="noopener">Live Radio US</a></li>	
-				</ul>
-		</article>
+        <article id="smart">
+            <h2>🗣️ Listen on your Smart Speaker</h2>
+            <p>You can also listen to <em>America's Country</em> on your Echo, Nest, or HomePod.</p>
+            <ul>
+                <li>"Alexa, play America's Country on TuneIn Radio."</li>
+                <li>"OK, Google, play America's Country."</li>
+                <li>"Hey Siri, play America's Country."</li>
+            </ul>
+        </article>
 
-		<article id="mobile" class="container">
-			<h2>Listen on your Mobile Device</h2>
-			<p>Listen on your device with these apps. Search for <em>America's Country</em>.</p>
-			<ul class="twocolumns">
-			<li><a href="https://bit.ly/3Rj8K2k" target="_blank" rel="noopener">Audacy for Android</a></li>
-			<li><a href="https://bit.ly/QYkmbU" target="_blank" rel="noopener">TuneIn for Android</a></li>
-			<li><a href="https://bit.ly/UA9PCA" target="_blank" rel="noopener">XiiaLive for Android</a></li>
-			<li><a href="https://bit.ly/3iPd9sW" target="_blank" rel="noopener">AmpHaven for Android</a></li>
-			<li><a href="https://apple.co/3x4SpXx" target="_blank" rel="noopener">Audacy for iOS</a></li>
-			<li><a href="https://apple.co/32V2zv7" target="_blank" rel="noopener">TuneIn for iOS</a></li>
-			<li><a href="https://apple.co/3deG0UG" target="_blank" rel="noopener">XiiaLive for iOS</a></li>
-			<li><a href="https://apple.co/3iGyogH" target="_blank" rel="noopener">nRadio for iOS</a></li>
-			<li><a href="https://apple.co/3hFTrOP" target="_blank" rel="noopener">StreamS HiFi Radio for iOS</a> ($2.99 usd)</li>
-			</ul>
-		</article>
+        <article id="social">
+            <h2>📲 Follow Us on Social Media</h2>
+            <p>Stay connected and get the latest updates from <em>America's Country</em>!</p>
+            <div class="social-links">
+                <a href="https://x.com/americascountry" target="_blank" rel="noopener">X (Twitter)</a>
+                <a href="https://www.facebook.com/americascountry" target="_blank" rel="noopener">Facebook</a>
+                <a href="https://www.instagram.com/americascountry" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.threads.net/@americascountry" target="_blank" rel="noopener">Threads</a>
+                <a href="https://bsky.app/profile/americascountry.us" target="_blank" rel="noopener">Bluesky</a>
+            </div>
+        </article>
+    </main>
 
-		<article id="smart" class="container">
-			<h2>Listen on your Smart Speaker</h2>
-			<p>You can also listen to <em>America's Country</em> on your Echo, Nest, or HomePod.</p>
-			<ul>
-			<li>"Alexa, play America's Country on TuneIn Radio."</li>
-			<li>"OK, Google, play America's Country."</li>
-			<li>"Hey Siri, play America's Country."</li>
-			</ul>
-		</article>
+    <footer>
+        <p>Thank you for visiting <em>America's Country</em>! All Rights Reserved.<br>
+        Copyright &copy; 2011 - <span id="current-year"></span> SuiteSounds Entertainment, LLC.</p>
+        <p>If you need help, please send an email: <a href="mailto:support@americascountry.us">support@americascountry.us</a></p>
+        
+        <p>
+            <a href="https://stationplaylist.com" target="_blank" rel="noopener">
+                <img src="images/splpowered.png" alt="America's Country is powered by Station Playlist" title="Powered by Station Playlist" aria-label="Powered by Station Playlist" width="88" height="31" style="border-radius: 5px;">
+            </a>
+        </p>
+        
+        <div id="donate-button-container">
+            <div id="donate-button"></div>
+            <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+            <script>
+            PayPal.Donation.Button({
+                env:'production',
+                hosted_button_id:'AG8ADTWQ3VKRE',
+                image: {
+                    src:'https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif',
+                    alt:'Donate with PayPal button',
+                    title:'PayPal - The safer, easier way to pay online!',
+                }
+            }).render('#donate-button');
+            </script>
+        </div>
+    </footer>
 
-		<article id="twitter" class="container">
-			<h2>Recent Social Media Posts</h2>
-			<p>Be sure to follow us on <a href="https://x.com/americascountry">X</a>, <a href="https://www.facebook.com/americascountry">Facebook</a>, <a href="https://www.instagram.com/americascountry">Instagram</a>, <a href="https://www.threads.net/@americascountry">Threads</a>, and <a href="https://bsky.app/profile/americascountry.us">Bluesky</a>!</p>
-			<div class="center"><div class="fb-page" data-href="https://www.facebook.com/americascountry" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/americascountry" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/americascountry">America&#039;s Country</a></blockquote></div></div>
-		</article>
-
-	</main>
-
-	<footer id="foot" class="footer">
-		<p>Thank you for visiting <em>America's Country</em>! All Rights Reserved. Copyright &copy; 2011 - <span id="current-year"></span> SuiteSounds Entertainment, LLC.<br/>
-		If you need help, please send an email: <a href="mailto:support@americascountry.us">Support Email</a></p>
-		<div class="fb-like" data-href="https://americascountry.us" data-width="30" data-layout="box_count" data-action="like" data-size="small" data-share="true"></div>
-		<p><a href="https://stationplaylist.com" target="_blank" rel="noopener"><img src="images/splpowered.png" alt="America's Country is powered by Station Playlist" title="Powered by Station Playlist" aria-label="Powered by Station Playlist" width="88" height="31"></a><br/>
-		<div id="donate-button-container">
-			<div id="donate-button"></div>
-			<script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
-			<script>
-			PayPal.Donation.Button({
-			env:'production',
-			hosted_button_id:'AG8ADTWQ3VKRE',
-			image: {
-			src:'https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif',
-			alt:'Donate with PayPal button',
-			title:'PayPal - The safer, easier way to pay online!',
-			}
-			}).render('#donate-button');
-			</script>
-			</div>
-		</p>
-	</footer>
-
-	<div id="fb-root"></div>
-	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v23.0&appId=1543598645802173"></script>
-	<script defer>window.addEventListener('load', onLoad); function onLoad () {const currentYearEl = document.getElementById('current-year'); if (currentYearEl) {const currentYear = new Date().getFullYear(); currentYearEl.textContent = currentYear;}}</script>
-	<!-- Google tag (gtag.js) -->
-	<script defer async src="https://www.googletagmanager.com/gtag/js?id=G-7PSR0H57RS"></script>
-	<script defer>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-	  gtag('config', 'G-7PSR0H57RS');
-	</script>
+    <script defer>
+        window.addEventListener('load', onLoad); 
+        function onLoad() {
+            const currentYearEl = document.getElementById('current-year'); 
+            if (currentYearEl) {
+                const currentYear = new Date().getFullYear(); 
+                currentYearEl.textContent = currentYear;
+            }
+        }
+    </script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-7PSR0H57RS"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-7PSR0H57RS');
+    </script>
 </body>
-
 </html>
