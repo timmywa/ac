@@ -5,29 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>America's Country - Listen Live</title>
 
-    <meta name="description" content="America's Country is an internet radio station that plays Three Decades of Country! This page will help you discover many ways to listen.">
+    <meta name="description" content="Listen to America's Country radio online - Three Decades of Country music streaming 24/7. Free internet radio featuring classic and modern country hits from the 90s, 2000s, and 2010s.">
+    <meta name="keywords" content="country radio, internet radio, online radio, country music, streaming radio, free radio, TuneIn, 90s country, 2000s country, 2010s country">
+    <meta name="author" content="SuiteSounds Entertainment, LLC">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://americascountry.us/">
 
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="images/Site%20Banner-option3_1_1.webp" as="image" type="image/webp">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rye&family=Bree+Serif:wght@400&family=Merriweather:wght@300;400;700&display=swap" as="style">
+    
+    <!-- DNS prefetch for additional domains -->
+    <link rel="dns-prefetch" href="//ecdn.onlineradiobox.com">
+    <link rel="dns-prefetch" href="//cdn.onlineradiobox.com">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://americascountry.us/">
-    <meta property="og:title" content="America's Country - Listen Live">
-    <meta property="og:description" content="America's Country is an internet radio station that plays Three Decades of Country!">
+    <meta property="og:title" content="America's Country - Free Online Country Radio | Three Decades of Hits">
+    <meta property="og:description" content="Stream America's Country radio free online! Enjoy three decades of country music hits from the 90s, 2000s, and 2010s. Listen now on any device - no registration required.">
     <meta property="og:image" content="https://americascountry.us/images/logo-5001.png">
-    <meta property="og:image:alt" content="America's Country in Stylized Text with a Cowboy Hat">
+    <meta property="og:image:alt" content="America's Country Radio Station Logo - Country Music Streaming">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="fb:app_id" content="1543598645802173">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@americascountry">
     <meta name="twitter:creator" content="@timmywa">
     <meta name="twitter:url" content="https://americascountry.us/">
-    <meta name="twitter:title" content="America's Country - Listen Live">
-    <meta name="twitter:description" content="America's Country is an internet radio station that plays Three Decades of Country!">
+    <meta name="twitter:title" content="America's Country - Free Online Country Radio">
+    <meta name="twitter:description" content="Stream America's Country radio free! Three decades of country music hits from the 90s, 2000s, and 2010s. Listen now on any device.">
     <meta name="twitter:image" content="https://americascountry.us/images/logo-5001.png">
-    <meta name="twitter:image:alt" content="America's Country in Stylized Text with a Cowboy Hat">
+    <meta name="twitter:image:alt" content="America's Country Radio Station Logo">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -155,6 +167,13 @@
             text-shadow: 3px 3px 6px var(--shadow);
             margin: 20px 0 0 0;
             letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 0.6em;
+            display: block;
+            margin-top: 10px;
+            opacity: 0.9;
         }
 
         /* Article Cards */
@@ -441,15 +460,23 @@
 
     <main class="container">
         <header>
-            <a href="https://americascountry.us">
-                <img src="images/Site%20Banner-option3_1_1.webp" fetchpriority="high" alt="America's Country in Stylized Text with a Cowboy Hat on an American Flag Background" aria-label="America's Country" title="America's Country">
+            <a href="https://americascountry.us" aria-label="America's Country Homepage">
+                <img src="images/Site%20Banner-option3_1_1.webp" 
+                     fetchpriority="high" 
+                     alt="America's Country - Free Online Country Radio Station Logo" 
+                     title="America's Country - Three Decades of Country Music"
+                     width="800" 
+                     height="400">
             </a>
-            <h1>America's Country<br>Three Decades of Country!</h1>
+            <h1>America's Country<br><span class="tagline">Three Decades of Country!</span></h1>
         </header>
 
-        <article id="tunein">
+        <article id="tunein" itemscope itemtype="https://schema.org/RadioStation">
             <h2>🎵 Listen Now!</h2>
-            <p>Click the <strong>play</strong> button in the player below to start listening to <em>America's Country</em>!</p>
+            <p>Click the <strong>play</strong> button in the player below to start listening to <em itemprop="name">America's Country</em>!</p>
+            <meta itemprop="genre" content="Country Music">
+            <meta itemprop="broadcastFrequency" content="Online Streaming">
+            <meta itemprop="description" content="Internet radio station playing three decades of country music">
             
 <!--OnlineRadioBox Player widget-->
 <div class="orbP cmpct" id="orb_player_4f435071fd0d26b9" vlm="0.8">
@@ -521,6 +548,9 @@ s.src = "//ecdn.onlineradiobox.com/js/pwidget2.min.235ca64e.js";
 
         <article id="services">
             <h2>🎧 Station Listing Services</h2>
+            <div class="note">
+                <strong>NOTE:</strong> Some of these links may open a page that will start playing automatically.
+            </div>
             <ul class="twocolumns">
                 <li><a href="https://www.audacy.com/stations/americascountry" target="_blank" rel="noopener">Audacy Radio</a></li>
                 <li><a href="https://www.radio.net/s/americascountry" target="_blank" rel="noopener">Radio.net</a></li>
@@ -547,9 +577,6 @@ s.src = "//ecdn.onlineradiobox.com/js/pwidget2.min.235ca64e.js";
                 <li><a href="https://theonestopradio.com/radio/us-america-s-country" target="_blank" rel="noopener">OneStop Radio</a></li>
                 <li><a href="https://liveradious.com/13239-americas-country.html" target="_blank" rel="noopener">Live Radio US</a></li>
             </ul>
-            <div class="note">
-                <strong>NOTE:</strong> Some of these links may open a page that will start playing automatically.
-            </div>
         </article>
 
         <article id="mobile">
