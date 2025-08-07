@@ -5,488 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>America's Country - Listen Live</title>
 
-    <meta name="description" content="Listen to America's Country radio online - Three Decades of Country music streaming 24/7. Free internet radio featuring classic and modern country hits from the 90s, 2000s, and 2010s.">
-    <meta name="keywords" content="country radio, internet radio, online radio, country music, streaming radio, free radio, TuneIn, 90s country, 2000s country, 2010s country">
-    <meta name="author" content="SuiteSounds Entertainment, LLC">
+    <meta name="description" content="America's Country is an internet radio station that plays Three Decades of Country! This page will help you discover many ways to listen.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://americascountry.us/">
 
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png">
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="images/Site%20Banner-option3_1_1.webp" as="image" type="image/webp">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rye&family=Bree+Serif:wght@400&family=Merriweather:wght@300;400;700&display=swap" as="style">
-    
-    <!-- DNS prefetch for additional domains -->
-    <link rel="dns-prefetch" href="//ecdn.onlineradiobox.com">
-    <link rel="dns-prefetch" href="//cdn.onlineradiobox.com">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://americascountry.us/">
-    <meta property="og:title" content="America's Country - Free Online Country Radio | Three Decades of Hits">
-    <meta property="og:description" content="Stream America's Country radio free online! Enjoy three decades of country music hits from the 90s, 2000s, and 2010s. Listen now on any device - no registration required.">
+    <meta property="og:title" content="America's Country - Listen Live">
+    <meta property="og:description" content="America's Country is an internet radio station that plays Three Decades of Country!">
     <meta property="og:image" content="https://americascountry.us/images/logo-5001.png">
-    <meta property="og:image:alt" content="America's Country Radio Station Logo - Country Music Streaming">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="America's Country in Stylized Text with a Cowboy Hat">
     <meta property="fb:app_id" content="1543598645802173">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@americascountry">
     <meta name="twitter:creator" content="@timmywa">
     <meta name="twitter:url" content="https://americascountry.us/">
-    <meta name="twitter:title" content="America's Country - Free Online Country Radio">
-    <meta name="twitter:description" content="Stream America's Country radio free! Three decades of country music hits from the 90s, 2000s, and 2010s. Listen now on any device.">
+    <meta name="twitter:title" content="America's Country - Listen Live">
+    <meta name="twitter:description" content="America's Country is an internet radio station that plays Three Decades of Country!">
     <meta name="twitter:image" content="https://americascountry.us/images/logo-5001.png">
-    <meta name="twitter:image:alt" content="America's Country Radio Station Logo">
+    <meta name="twitter:image:alt" content="America's Country in Stylized Text with a Cowboy Hat">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://onlineradiobox.com" crossorigin>
+    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
     <link rel="preconnect" href="https://www.paypalobjects.com" crossorigin>
 
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css" integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link href="https://fonts.googleapis.com/css2?family=Rye&family=Bree+Serif:wght@400&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            /* Dark theme colors (default) */
-            --primary-brown: #8B4513;
-            --dark-brown: #654321;
-            --leather-tan: #E5D4B1;
-            --cream: #FEFDF8;
-            --rust-red: #D2B48C;
-            --deep-red: #A0522D;
-            --gold: #DAA520;
-            --shadow: rgba(0, 0, 0, 0.2);
-            
-            /* Theme-specific variables */
-            --bg-gradient: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #654321 100%);
-            --text-primary: var(--cream);
-            --article-bg: rgba(254, 253, 248, 0.97);
-            --article-text: var(--dark-brown);
-            --header-bg: rgba(0, 0, 0, 0.3);
-            --footer-bg: rgba(0, 0, 0, 0.8);
-            --header-title-color: var(--gold);
-            --header-title-shadow: 3px 3px 6px var(--shadow);
-        }
-
-        /* Light theme */
-        [data-theme="light"] {
-            --bg-gradient: linear-gradient(135deg, #F5F5DC 0%, #E5D4B1 50%, #D2B48C 100%);
-            --text-primary: var(--dark-brown);
-            --article-bg: rgba(255, 255, 255, 0.95);
-            --article-text: var(--dark-brown);
-            --header-bg: rgba(255, 255, 255, 0.9);
-            --footer-bg: rgba(139, 69, 19, 0.95);
-            --header-title-color: var(--primary-brown);
-            --header-title-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Merriweather', serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background: var(--bg-gradient);
-            background-attachment: fixed;
-            color: var(--text-primary);
-            min-height: 100vh;
-            transition: all 0.3s ease;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Theme Switcher */
-        .theme-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: var(--article-bg);
-            border: 2px solid var(--rust-red);
-            border-radius: 25px;
-            padding: 10px 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px var(--shadow);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .theme-switcher:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px var(--shadow);
-        }
-
-        .theme-switcher-text {
-            color: var(--article-text);
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .theme-icon {
-            font-size: 18px;
-        }
-
-        /* Header Styles */
-        header {
-            text-align: center;
-            padding: 30px 20px;
-            background: var(--header-bg);
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 32px var(--shadow);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        header img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px var(--shadow);
-            transition: transform 0.3s ease;
-        }
-
-        header img:hover {
-            transform: scale(1.02);
-        }
-
-        header h1 {
-            font-family: 'Rye', serif;
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            color: var(--header-title-color);
-            text-shadow: var(--header-title-shadow);
-            margin: 20px 0 0 0;
-            letter-spacing: 2px;
-        }
-
-        .tagline {
-            font-size: 0.6em;
-            display: block;
-            margin-top: 10px;
-            opacity: 0.9;
-        }
-
-        /* Article Cards */
-        article {
-            background: var(--article-bg);
-            color: var(--article-text);
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 15px;
-            box-shadow: 0 8px 32px var(--shadow);
-            border: 2px solid var(--rust-red);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        article::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold), var(--rust-red), var(--gold));
-        }
-
-        article h2 {
-            font-family: 'Bree Serif', serif;
-            font-size: clamp(1.5rem, 3vw, 2.2rem);
-            color: var(--primary-brown);
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-            border-bottom: 2px solid var(--rust-red);
-            padding-bottom: 10px;
-        }
-
-        /* Player Section */
-        #tunein {
-            background: var(--article-bg);
-        }
-
-        /* Links and Lists */
-        a {
-            color: var(--deep-red);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--primary-brown);
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        .twocolumns {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            padding: 0;
-            list-style: none;
-        }
-
-        .twocolumns li {
-            background: rgba(139, 69, 19, 0.1);
-            padding: 12px 15px;
-            border-radius: 8px;
-            border-left: 4px solid var(--rust-red);
-            transition: all 0.3s ease;
-        }
-
-        .twocolumns li:hover {
-            background: rgba(139, 69, 19, 0.2);
-            transform: translateX(5px);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        ul:not(.twocolumns) {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            padding: 0;
-            list-style: none;
-        }
-
-        /* Exclude OnlineRadioBox player lists from grid formatting */
-        .orbPpl, .orbPpl li {
-            display: block !important;
-            grid-template-columns: none !important;
-            gap: 0 !important;
-        }
-
-        /* OnlineRadioBox flags section - flatten to inline */
-        .orbF .orbFl {
-            display: flex !important;
-            flex-wrap: wrap !important;
-            gap: 10px !important;
-        }
-        
-        .orbF .orbFli {
-            display: inline-flex !important;
-            align-items: center !important;
-            margin: 0 !important;
-        }
-
-        ul:not(.twocolumns) li {
-            background: rgba(139, 69, 19, 0.1);
-            padding: 12px 15px;
-            border-radius: 8px;
-            border-left: 4px solid var(--rust-red);
-            transition: all 0.3s ease;
-        }
-
-        ul:not(.twocolumns) li:hover {
-            background: rgba(139, 69, 19, 0.2);
-            transform: translateX(5px);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Smart Speaker Commands */
-        #smart ul li {
-            background: rgba(218, 165, 32, 0.08);
-            padding: 15px;
-            border-radius: 8px;
-            font-style: italic;
-            font-weight: 500;
-            border-left: 4px solid var(--gold);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--footer-bg);
-            color: var(--cream);
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
-            border-top: 4px solid var(--gold);
-            transition: all 0.3s ease;
-        }
-
-        footer p {
-            margin-bottom: 15px;
-        }
-
-        footer a {
-            color: var(--gold);
-        }
-
-        footer a:hover {
-            color: var(--cream);
-        }
-
-        /* Social Media Links */
-        .social-links {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            max-width: 400px;
-            margin: 20px auto;
-            justify-items: center;
-        }
-        
-        .social-links a:last-child {
-            grid-column: 1 / -1;
-            justify-self: center;
-        }
-
-        .social-links a {
-            background: var(--rust-red);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .social-links a:hover {
-            background: var(--gold);
-            color: var(--dark-brown);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-
-            .theme-switcher {
-                top: 10px;
-                right: 10px;
-                padding: 8px 12px;
-            }
-
-            .theme-switcher-text {
-                font-size: 12px;
-            }
-
-            .theme-icon {
-                font-size: 16px;
-            }
-
-            article {
-                padding: 15px;
-                margin-bottom: 15px;
-            }
-
-            .twocolumns {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
-            }
-
-            ul:not(.twocolumns) {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
-            }
-
-            .social-links {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        article {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        article:nth-child(2) { animation-delay: 0.1s; }
-        article:nth-child(3) { animation-delay: 0.2s; }
-        article:nth-child(4) { animation-delay: 0.3s; }
-        article:nth-child(5) { animation-delay: 0.4s; }
-        article:nth-child(6) { animation-delay: 0.5s; }
-
-        /* Player Enhancement */
-        .player-wrapper {
-            background: rgba(139, 69, 19, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border: 2px solid var(--rust-red);
-        }
-
-        /* Note styling */
-        .note {
-            background: rgba(218, 165, 32, 0.2);
-            border: 1px solid var(--gold);
-            border-radius: 8px;
-            padding: 15px;
-            margin: 15px 0;
-            font-style: italic;
-        }
-
-        strong {
-            color: var(--primary-brown);
-        }
-
-        em {
-            color: var(--deep-red);
-            font-style: italic;
-        }
-
-        /* Footer em tags should match footer text color */
-        footer em {
-            color: inherit;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 
     <script defer async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7092128557292662" crossorigin="anonymous"></script>
 </head>
 
-<body>
-    <!-- Theme Switcher -->
-    <div class="theme-switcher" id="theme-switcher" onclick="toggleTheme()">
-        <span class="theme-icon" id="theme-icon">🌙</span>
-        <span class="theme-switcher-text" id="theme-text">Dark</span>
-    </div>
+<body id="base" class="body">
 
-    <main class="container">
-        <header>
-            <a href="https://americascountry.us" aria-label="America's Country Homepage">
-                <img src="images/Site%20Banner-option3_1_1.webp" 
-                     fetchpriority="high" 
-                     alt="America's Country - Free Online Country Radio Station Logo" 
-                     title="America's Country - Three Decades of Country Music"
-                     width="800" 
-                     height="400">
-            </a>
-            <h1>America's Country<br><span class="tagline">Three Decades of Country!</span></h1>
-        </header>
+	<main id="main" class="container">
 
-        <article id="tunein" itemscope itemtype="https://schema.org/RadioStation">
-            <h2>🎵 Listen Now!</h2>
-            <p>Click the <strong>play</strong> button in the player below to start listening to <em itemprop="name">America's Country</em>!</p>
-            <meta itemprop="genre" content="Country Music">
-            <meta itemprop="broadcastFrequency" content="Online Streaming">
-            <meta itemprop="description" content="Internet radio station playing three decades of country music">
-            
+		<header id="banner" class="container">
+			<a href="https://americascountry.us"><img src="images/Site%20Banner-option3_1_1.webp" fetchpriority="high" alt="America's Country in Stylized Text with a Cowboy Hat on an American Flag Background" aria-label="America's Country" title="America's Country" class="center"></a>
+			<h1 class="center">America's Country<br>Three Decades of Country!</h1>
+		</header>
+	
+		<article id="tunein" class="container">
+			<h2>Listen Now!</h2>
+			<p>Click the <strong>play</strong> button in the player below <!-- or click this <a href="https://play.broadcasteralliance.org/amcountry" target="_blank" rel="noopener">Mobile Link</a> -->to start listening to <em>America's Country</em>!</p>
 <!--OnlineRadioBox Player widget-->
 <div class="orbP cmpct" id="orb_player_4f435071fd0d26b9" vlm="0.8">
 <style media="screen">
@@ -532,8 +99,8 @@
 
   <button class="orbPp" title="Listen live" country="us" alias="americascountry" stream="1"></button>
   <a class="orbPt" href="https://onlineradiobox.com/us/americascountry/" target="_blank">
-    <img class="orbPti" src="//cdn.onlineradiobox.com/img/l/8/67018.v14.png" alt="America's Country">
-    <span class="orbPtn">America's Country</span>
+    <img class="orbPti" src="//cdn.onlineradiobox.com/img/l/8/67018.v14.png" alt="America’s Country">
+    <span class="orbPtn">America’s Country</span>
   </a>
   <span class="orbPtt" loading="loading" playing="playing" error="playback error" not_supported="this browser can't play it" external="Listen now (Opens in popup player)" geo_blocked="Not available in your country"></span>
   <div class="orbV"><div class="orbVb"><i class="_m"></i></div><div class="orbVC"><div class="orbVCs" style="left: 80%;"></div></div></div>
@@ -553,159 +120,108 @@ s.src = "//ecdn.onlineradiobox.com/js/pwidget2.min.235ca64e.js";
 </script>
 </div>
 <!--OnlineRadioBox Player widget-->
-        </article>
 
-        <article id="services">
-            <h2>🎧 Station Listing Services</h2>
-            <div class="note">
-                <strong>NOTE:</strong> Some of these links may open a page that will start playing automatically.
-            </div>
-            <ul class="twocolumns">
-                <li><a href="https://www.audacy.com/stations/americascountry" target="_blank" rel="noopener">Audacy Radio</a></li>
-                <li><a href="https://www.radio.net/s/americascountry" target="_blank" rel="noopener">Radio.net</a></li>
-                <li><a href="https://tunein.com/radio/Americas-Country-s126270/" target="_blank" rel="noopener">TuneIn Radio</a></li>
-                <li><a href="https://streema.com/radios/Americas_Country" target="_blank" rel="noopener">Streema</a></li>
-                <li><a href="https://openradio.app/station/america-s-country-m2gk4jpk" target="_blank" rel="noopener">OpenRadio.app</a></li>
-                <li><a href="https://www.streamfinder.com/streaming-radio/americas-country/30477/" target="_blank" rel="noopener">StreamFinder</a></li>
-                <li><a href="https://radio.garden/live/salt-lake-city-ut/america-s-country/" target="_blank" rel="noopener">Radio Garden</a></li>
-                <li><a href="https://raddio.net/84977-americas-country/" target="_blank" rel="noopener">Raddio.net</a></li>
-                <li><a href="https://onlineradiobox.com/us/americascountry/" target="_blank" rel="noopener">Online Radio Box</a></li>
-                <li><a href="https://www.radioplug.co.uk/channel/Americas-Country" target="_blank" rel="noopener">RadioPlug</a></li>
-                <li><a href="https://www.jawaradio.com/radio/international-radio/america%E2%80%99s-country" target="_blank" rel="noopener">JAWA Radio</a></li>
-                <li><a href="https://www.listenonlineradio.com/usa/americas-country" target="_blank" rel="noopener">ListenOnline Radio</a></li>
-                <li><a href="https://www.liveradio.ie/stations/americas-country" target="_blank" rel="noopener">LiveRadio IE</a></li>
-                <li><a href="https://www.liveradio.uk/stations/americas-country" target="_blank" rel="noopener">LiveRadio UK</a></li>
-                <li><a href="https://radiostationusa.fm/online/americas-country" target="_blank" rel="noopener">RadioStation USA</a></li>
-                <li><a href="https://mytuner-radio.com/radio/americas-country-439609/" target="_blank" rel="noopener">myTuner Radio</a></li>
-                <li><a href="https://radiovary.com/radio/Americas-Country-hQ650731948" target="_blank" rel="noopener">RadioVary</a></li>
-                <li><a href="https://appradiofm.com/radio/America's-Country-Salt-Lake-City-Utah--UT--USA-9iia2" target="_blank" rel="noopener">RadioFM</a></li>
-                <li><a href="https://www.liveonlineradio.net/usa/americas-country.htm" target="_blank" rel="noopener">Live Online Radio</a></li>
-                <li><a href="https://forwardmystream.com/station/americascountry" target="_blank" rel="noopener">Forward My Stream</a></li>
-                <li><a href="https://radioonlinelive.com/usa/americas-country/" target="_blank" rel="noopener">Radio Online Live</a></li>
-                <li><a href="https://us-radio.com/americas-country-r7148" target="_blank" rel="noopener">US-Radio.com</a></li>
-                <li><a href="https://theonestopradio.com/radio/us-america-s-country" target="_blank" rel="noopener">OneStop Radio</a></li>
-                <li><a href="https://liveradious.com/13239-americas-country.html" target="_blank" rel="noopener">Live Radio US</a></li>
-            </ul>
-        </article>
+		</article>
 
-        <article id="mobile">
-            <h2>📱 Listen on your Mobile Device</h2>
-            <p>Listen on your device with these apps. Search for <em>America's Country</em>.</p>
-            <ul class="twocolumns">
-                <li><a href="https://bit.ly/3Rj8K2k" target="_blank" rel="noopener">Audacy for Android</a></li>
-                <li><a href="https://bit.ly/QYkmbU" target="_blank" rel="noopener">TuneIn for Android</a></li>
-                <li><a href="https://bit.ly/UA9PCA" target="_blank" rel="noopener">XiiaLive for Android</a></li>
-                <li><a href="https://bit.ly/3iPd9sW" target="_blank" rel="noopener">AmpHaven for Android</a></li>
-                <li><a href="https://apple.co/3x4SpXx" target="_blank" rel="noopener">Audacy for iOS</a></li>
-                <li><a href="https://apple.co/32V2zv7" target="_blank" rel="noopener">TuneIn for iOS</a></li>
-                <li><a href="https://apple.co/3deG0UG" target="_blank" rel="noopener">XiiaLive for iOS</a></li>
-                <li><a href="https://apple.co/3iGyogH" target="_blank" rel="noopener">nRadio for iOS</a></li>
-                <li><a href="https://apple.co/3hFTrOP" target="_blank" rel="noopener">StreamS HiFi Radio for iOS</a> ($2.99 USD)</li>
-            </ul>
-        </article>
+		<article id="services" class="container">
+			<h2>Station Listing Services</h2>
+			<p><strong>NOTE:</strong> Some of these links may open a page that will start playing automatically.</p>
+				<ul class="twocolumns">
+				<li><a href="https://www.audacy.com/stations/americascountry" target="_blank" rel="noopener">Audacy Radio</a></li>
+				<li><a href="https://www.radio.net/s/americascountry" target="_blank" rel="noopener">Radio.net</a></li>
+				<li><a href="https://tunein.com/radio/Americas-Country-s126270/" target="_blank" rel="noopener">TuneIn Radio</a></li>
+				<li><a href="https://streema.com/radios/Americas_Country" target="_blank" rel="noopener">Streema</a></li>
+				<li><a href="https://openradio.app/station/america-s-country-m2gk4jpk" target="_blank" rel="noopener">OpenRadio.app</a></li>
+				<li><a href="https://www.streamfinder.com/streaming-radio/americas-country/30477/" target="_blank" rel="noopener">StreamFinder</a></li>
+				<li><a href="https://radio.garden/live/salt-lake-city-ut/america-s-country/" target="_blank" rel="noopener">Radio Garden</a></li>
+				<li><a href="https://raddio.net/84977-americas-country/" target="_blank" rel="noopener">Raddio.net</a></li>
+				<li><a href="https://onlineradiobox.com/us/americascountry/" target="_blank" rel="noopener">Online Radio Box</a></li>
+				<li><a href="https://www.radioplug.co.uk/channel/Americas-Country" target="_blank" rel="noopener">RadioPlug</a></li>
+				<li><a href="https://www.jawaradio.com/radio/international-radio/america%E2%80%99s-country" target="_blank" rel="noopener">JAWA Radio</a></li>
+				<li><a href="https://www.listenonlineradio.com/usa/americas-country" target="_blank" rel="noopener">ListenOnline Radio</a></li>
+				<li><a href="https://www.liveradio.ie/stations/americas-country" target="_blank" rel="noopener">LiveRadio IE</a></li>
+				<li><a href="https://www.liveradio.uk/stations/americas-country" target="_blank" rel="noopener">LiveRadio UK</a></li>
+				<li><a href="https://radiostationusa.fm/online/americas-country" target="_blank" rel="noopener">RadioStation USA</a></li>
+				<li><a href="https://mytuner-radio.com/radio/americas-country-439609/" target="_blank" rel="noopener">myTuner Radio</a></li>
+				<li><a href="https://radiovary.com/radio/Americas-Country-hQ650731948" target="_blank" rel="noopener">RadioVary</a></li>
+				<li><a href="https://appradiofm.com/radio/America's-Country-Salt-Lake-City-Utah--UT--USA-9iia2" target="_blank" rel="noopener">RadioFM</a></li>
+				<li><a href="https://www.liveonlineradio.net/usa/americas-country.htm" target="_blank" rel="noopener">Live Online Radio</a></li>
+				<li><a href="https://forwardmystream.com/station/americascountry" target="_blank" rel="noopener">Forward My Stream</a></li>
+				<li><a href="https://radioonlinelive.com/usa/americas-country/" target="_blank" rel="noopener">Radio Online Live</a></li>
+				<li><a href="https://us-radio.com/americas-country-r7148" target="_blank" rel="noopener">US-Radio.com</a></li>
+				<li><a href="https://theonestopradio.com/radio/us-america-s-country" target="_blank" rel="noopener">OneStop Radio</a></li>
+				<li><a href="https://liveradious.com/13239-americas-country.html" target="_blank" rel="noopener">Live Radio US</a></li>	
+				</ul>
+		</article>
 
-        <article id="smart">
-            <h2>🗣️ Listen on your Smart Speaker</h2>
-            <p>You can also listen to <em>America's Country</em> on your Echo, Nest, or HomePod.</p>
-            <ul>
-                <li>"Alexa, play America's Country on TuneIn Radio."</li>
-                <li>"OK, Google, play America's Country."</li>
-                <li>"Hey Siri, play America's Country."</li>
-            </ul>
-        </article>
+		<article id="mobile" class="container">
+			<h2>Listen on your Mobile Device</h2>
+			<p>Listen on your device with these apps. Search for <em>America's Country</em>.</p>
+			<ul class="twocolumns">
+			<li><a href="https://bit.ly/3Rj8K2k" target="_blank" rel="noopener">Audacy for Android</a></li>
+			<li><a href="https://bit.ly/QYkmbU" target="_blank" rel="noopener">TuneIn for Android</a></li>
+			<li><a href="https://bit.ly/UA9PCA" target="_blank" rel="noopener">XiiaLive for Android</a></li>
+			<li><a href="https://bit.ly/3iPd9sW" target="_blank" rel="noopener">AmpHaven for Android</a></li>
+			<li><a href="https://apple.co/3x4SpXx" target="_blank" rel="noopener">Audacy for iOS</a></li>
+			<li><a href="https://apple.co/32V2zv7" target="_blank" rel="noopener">TuneIn for iOS</a></li>
+			<li><a href="https://apple.co/3deG0UG" target="_blank" rel="noopener">XiiaLive for iOS</a></li>
+			<li><a href="https://apple.co/3iGyogH" target="_blank" rel="noopener">nRadio for iOS</a></li>
+			<li><a href="https://apple.co/3hFTrOP" target="_blank" rel="noopener">StreamS HiFi Radio for iOS</a> ($2.99 usd)</li>
+			</ul>
+		</article>
 
-        <article id="social">
-            <h2>📲 Follow Us on Social Media</h2>
-            <p>Stay connected and get the latest updates from <em>America's Country</em>!</p>
-            <div class="social-links">
-                <a href="https://x.com/americascountry" target="_blank" rel="noopener">X (Twitter)</a>
-                <a href="https://www.facebook.com/americascountry" target="_blank" rel="noopener">Facebook</a>
-                <a href="https://www.instagram.com/americascountry" target="_blank" rel="noopener">Instagram</a>
-                <a href="https://www.threads.net/@americascountry" target="_blank" rel="noopener">Threads</a>
-                <a href="https://bsky.app/profile/americascountry.us" target="_blank" rel="noopener">Bluesky</a>
-            </div>
-        </article>
-    </main>
+		<article id="smart" class="container">
+			<h2>Listen on your Smart Speaker</h2>
+			<p>You can also listen to <em>America's Country</em> on your Echo, Nest, or HomePod.</p>
+			<ul>
+			<li>"Alexa, play America's Country on TuneIn Radio."</li>
+			<li>"OK, Google, play America's Country."</li>
+			<li>"Hey Siri, play America's Country."</li>
+			</ul>
+		</article>
 
-    <footer>
-        <p>Thank you for visiting <em>America's Country</em>! All Rights Reserved.<br>
-        Copyright &copy; 2011 - <span id="current-year"></span> SuiteSounds Entertainment, LLC.</p>
-        <p>If you need help, please send an email: <a href="mailto:support@americascountry.us">support@americascountry.us</a></p>
-        
-        <p>
-            <a href="https://stationplaylist.com" target="_blank" rel="noopener">
-                <img src="images/splpowered.png" alt="America's Country is powered by Station Playlist" title="Powered by Station Playlist" aria-label="Powered by Station Playlist" width="88" height="31" style="border-radius: 5px;">
-            </a>
-        </p>
-        
-        <div id="donate-button-container">
-            <div id="donate-button"></div>
-            <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
-            <script>
-            PayPal.Donation.Button({
-                env:'production',
-                hosted_button_id:'AG8ADTWQ3VKRE',
-                image: {
-                    src:'https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif',
-                    alt:'Donate with PayPal button',
-                    title:'PayPal - The safer, easier way to pay online!',
-                }
-            }).render('#donate-button');
-            </script>
-        </div>
-    </footer>
+		<article id="twitter" class="container">
+			<h2>Recent Social Media Posts</h2>
+			<p>Be sure to follow us on <a href="https://x.com/americascountry">X</a>, <a href="https://www.facebook.com/americascountry">Facebook</a>, <a href="https://www.instagram.com/americascountry">Instagram</a>, <a href="https://www.threads.net/@americascountry">Threads</a>, and <a href="https://bsky.app/profile/americascountry.us">Bluesky</a>!</p>
+			<div class="center"><div class="fb-page" data-href="https://www.facebook.com/americascountry" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/americascountry" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/americascountry">America&#039;s Country</a></blockquote></div></div>
+		</article>
 
-    <script defer>
-        // Theme management - use regular variables instead of localStorage
-        let currentTheme = 'dark'; // Default theme
-        
-        // Apply theme on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            applyTheme(currentTheme);
-            updateThemeUI();
-        });
+	</main>
 
-        function toggleTheme() {
-            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            applyTheme(currentTheme);
-            updateThemeUI();
-        }
+	<footer id="foot" class="footer">
+		<p>Thank you for visiting <em>America's Country</em>! All Rights Reserved. Copyright &copy; 2011 - <span id="current-year"></span> SuiteSounds Entertainment, LLC.<br/>
+		If you need help, please send an email: <a href="mailto:support@americascountry.us">Support Email</a></p>
+		<div class="fb-like" data-href="https://americascountry.us" data-width="30" data-layout="box_count" data-action="like" data-size="small" data-share="true"></div>
+		<p><a href="https://stationplaylist.com" target="_blank" rel="noopener"><img src="images/splpowered.png" alt="America's Country is powered by Station Playlist" title="Powered by Station Playlist" aria-label="Powered by Station Playlist" width="88" height="31"></a><br/>
+		<div id="donate-button-container">
+			<div id="donate-button"></div>
+			<script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+			<script>
+			PayPal.Donation.Button({
+			env:'production',
+			hosted_button_id:'AG8ADTWQ3VKRE',
+			image: {
+			src:'https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif',
+			alt:'Donate with PayPal button',
+			title:'PayPal - The safer, easier way to pay online!',
+			}
+			}).render('#donate-button');
+			</script>
+			</div>
+		</p>
+	</footer>
 
-        function applyTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-        }
-
-        function updateThemeUI() {
-            const themeIcon = document.getElementById('theme-icon');
-            const themeText = document.getElementById('theme-text');
-            
-            if (currentTheme === 'light') {
-                themeIcon.textContent = '☀️';
-                themeText.textContent = 'Light';
-            } else {
-                themeIcon.textContent = '🌙';
-                themeText.textContent = 'Dark';
-            }
-        }
-
-        // Current year update
-        window.addEventListener('load', onLoad); 
-        function onLoad() {
-            const currentYearEl = document.getElementById('current-year'); 
-            if (currentYearEl) {
-                const currentYear = new Date().getFullYear(); 
-                currentYearEl.textContent = currentYear;
-            }
-        }
-    </script>
-    
-    <!-- Google tag (gtag.js) -->
-    <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-7PSR0H57RS"></script>
-    <script defer>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-7PSR0H57RS');
-    </script>
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v23.0&appId=1543598645802173"></script>
+	<script defer>window.addEventListener('load', onLoad); function onLoad () {const currentYearEl = document.getElementById('current-year'); if (currentYearEl) {const currentYear = new Date().getFullYear(); currentYearEl.textContent = currentYear;}}</script>
+	<!-- Google tag (gtag.js) -->
+	<script defer async src="https://www.googletagmanager.com/gtag/js?id=G-7PSR0H57RS"></script>
+	<script defer>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'G-7PSR0H57RS');
+	</script>
 </body>
+
 </html>
