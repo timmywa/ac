@@ -68,6 +68,8 @@
             --article-text: var(--dark-brown);
             --header-bg: rgba(0, 0, 0, 0.3);
             --footer-bg: rgba(0, 0, 0, 0.8);
+            --header-title-color: var(--gold);
+            --header-title-shadow: 3px 3px 6px var(--shadow);
         }
 
         /* Light theme */
@@ -78,6 +80,8 @@
             --article-text: var(--dark-brown);
             --header-bg: rgba(255, 255, 255, 0.9);
             --footer-bg: rgba(139, 69, 19, 0.95);
+            --header-title-color: var(--primary-brown);
+            --header-title-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         * {
@@ -163,8 +167,8 @@
         header h1 {
             font-family: 'Rye', serif;
             font-size: clamp(2rem, 4vw, 3.5rem);
-            color: var(--gold);
-            text-shadow: 3px 3px 6px var(--shadow);
+            color: var(--header-title-color);
+            text-shadow: var(--header-title-shadow);
             margin: 20px 0 0 0;
             letter-spacing: 2px;
         }
@@ -652,14 +656,8 @@ s.src = "//ecdn.onlineradiobox.com/js/pwidget2.min.235ca64e.js";
     </footer>
 
     <script defer>
-        // Theme management
+        // Theme management - use regular variables instead of localStorage
         let currentTheme = 'dark'; // Default theme
-        
-        // Load theme from localStorage if available
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            currentTheme = savedTheme;
-        }
         
         // Apply theme on page load
         document.addEventListener('DOMContentLoaded', function() {
@@ -671,7 +669,6 @@ s.src = "//ecdn.onlineradiobox.com/js/pwidget2.min.235ca64e.js";
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
             applyTheme(currentTheme);
             updateThemeUI();
-            localStorage.setItem('theme', currentTheme);
         }
 
         function applyTheme(theme) {
