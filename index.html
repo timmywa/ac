@@ -313,6 +313,21 @@
         gtag('js', new Date());
         gtag('config', 'G-7PSR0H57RS');
     </script>
+    <script>
+        function toggleServices() {
+            const wrapper = document.getElementById('services-wrapper');
+            const btn = document.getElementById('view-more-btn');
+            
+            wrapper.classList.toggle('expanded');
+            
+            if (wrapper.classList.contains('expanded')) {
+                btn.textContent = 'Show Less';
+            } else {
+                btn.textContent = 'View All Services';
+                // Smoothly scroll back up to the top of the section when closing
+                document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
 </body>
 </html>
-
