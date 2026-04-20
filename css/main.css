@@ -60,7 +60,7 @@ body {
     top: 20px;
     right: 20px;
     z-index: 1000;
-    background: var(--article-bg);
+    background: var(--section-bg);
     border: 2px solid var(--rust-red);
     border-radius: 25px;
     padding: 10px 15px;
@@ -78,7 +78,7 @@ body {
 }
 
 .theme-switcher-text {
-    color: var(--article-text);
+    color: var(--section-text);
     font-size: 14px;
     font-weight: 600;
 }
@@ -130,8 +130,8 @@ header h1 {
 
 /* Article Cards */
 section {
-    background: var(--article-bg);
-    color: var(--article-text);
+    background: var(--section-bg);
+    color: var(--section-text);
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 15px;
@@ -164,7 +164,7 @@ section h2 {
 
 /* Player Section */
 #tunein {
-    background: var(--article-bg);
+    background: var(--section-bg);
 }
 
 /* Links and Lists */
