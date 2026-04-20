@@ -128,7 +128,7 @@ header h1 {
     opacity: 0.9;
 }
 
-/* Article Cards */
+/* Section Cards */
 section {
     background: var(--section-bg);
     color: var(--section-text);
