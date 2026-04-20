@@ -12,8 +12,8 @@
     /* Theme-specific variables */
     --bg-gradient: linear-gradient(135deg, var(--primary-brown) 0%, var(--deep-red) 50%, var(--dark-brown) 100%);
     --text-primary: var(--cream);
-    --article-bg: rgba(254, 253, 248, 0.97);
-    --article-text: var(--dark-brown);
+    --section-bg: rgba(254, 253, 248, 0.97);
+    --section-text: var(--dark-brown);
     --header-bg: rgba(0, 0, 0, 0.3);
     --footer-bg: rgba(0, 0, 0, 0.8);
     --header-title-color: var(--gold);
@@ -24,8 +24,8 @@
 [data-theme="light"] {
     --bg-gradient: linear-gradient(135deg, #F5F5DC 0%, var(--leather-tan) 50%, var(--rust-red) 100%);
     --text-primary: var(--dark-brown);
-    --article-bg: rgba(255, 255, 255, 0.95);
-    --article-text: var(--dark-brown);
+    --section-bg: rgba(255, 255, 255, 0.95);
+    --section-text: var(--dark-brown);
     --header-bg: rgba(255, 255, 255, 0.9);
     --footer-bg: rgba(139, 69, 19, 0.95);
     --header-title-color: var(--primary-brown);
