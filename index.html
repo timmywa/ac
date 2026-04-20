@@ -47,6 +47,12 @@
 </head>
 
 <body>
+        <script>
+        (function() {
+            const savedTheme = 'dark'; // Or your logic to fetch from localStorage
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
     <div class="theme-switcher" id="theme-switcher" onclick="toggleTheme()">
         <span class="theme-icon" id="theme-icon">🌙</span>
         <span class="theme-switcher-text" id="theme-text">Dark</span>
