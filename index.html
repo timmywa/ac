@@ -243,4 +243,104 @@
                 </a>
                 <a href="https://bsky.app/profile/americascountry.us" target="_blank" rel="noopener noreferrer" title="Follow us on Bluesky">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 2.105.139 3.107.139 5.498.139 6.789c0 1.24.375
+                        <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 2.105.139 3.107.139 5.498.139 6.789c0 1.24.375 2.533.936 3.714.561 1.181 1.354 2.293 2.209 3.293C5.225 15.849 7.724 17.849 12 18.4c4.276-.551 6.775-2.551 8.716-4.604.855-1 1.648-2.112 2.209-3.293.561-1.181.936-2.474.936-3.714 0-1.291 0-3.682-.763-4.684C22.439 1.266 21.434.944 18.798 2.805 16.046 4.747 13.087 8.686 12 10.8z"/>
+                    </svg>
+                </a>
+            </div>
+            <p>If you need help or something isn't working right, please <a href="mailto:help@americascountry.us">email</a>, text or call us: <a href="tel:+18017884916">+1 (801) 788-4916</a>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Thank you for visiting <em>America's Country</em>! All Rights Reserved.<br>
+        Copyright © 2011 - <span id="current-year"></span> SuiteSounds Entertainment, LLC.</p>
+        <p>
+            <a href="https://stationplaylist.com" target="_blank" rel="noopener noreferrer">
+                <img src="images/splpowered.png" alt="America's Country is powered by Station Playlist" width="88" height="31" loading="lazy">
+            </a>
+        </p>
+        
+        <div id="donate-button-container">
+            <div id="donate-button"></div>
+        </div>
+    </footer>
+
+    <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js"></script>
+    <script>
+        // Sync custom state configurations
+        let currentTheme = localStorage.getItem('theme') || 'dark';
+
+        // Update copyright year on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentYearEl = document.getElementById('current-year');
+            if (currentYearEl) {
+                currentYearEl.textContent = new Date().getFullYear();
+            }
+            
+            // Render interface updates based on initial blocking value
+            applyTheme(currentTheme);
+            updateThemeUI();
+        });
+        
+        // PayPal donation button
+        PayPal.Donation.Button({
+            env: 'production',
+            hosted_button_id: 'AG8ADTWQ3VKRE',
+            image: {
+                src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif',
+                alt: 'Donate with PayPal button',
+                loading: 'lazy'
+            }
+        }).render('#donate-button');
+
+        function toggleTheme() {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('theme', currentTheme);
+            applyTheme(currentTheme);
+            updateThemeUI();
+        }
+
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+        }
+
+        function updateThemeUI() {
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+            
+            if (!themeIcon || !themeText) return;
+
+            if (currentTheme === 'light') {
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light';
+            } else {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark';
+            }
+        }
+    </script>
+    <script defer async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7092128557292662" crossorigin="anonymous"></script>
+    <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-7PSR0H57RS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-7PSR0H57RS');
+    </script>
+    <script>
+        function toggleServices() {
+            const wrapper = document.getElementById('services-wrapper');
+            const btn = document.getElementById('view-more-btn');
+            
+            wrapper.classList.toggle('expanded');
+            
+            if (wrapper.classList.contains('expanded')) {
+                btn.textContent = 'Show Less';
+            } else {
+                btn.textContent = 'View All Services';
+                document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
