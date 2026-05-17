@@ -143,6 +143,7 @@ section {
     transition: all 0.3s ease;
     opacity: 0; /* Hidden for animation load */
     animation: fadeInUp 0.6s ease forwards;
+    will-change: transform, opacity; /* Forces browser GPU optimization */
 }
 
 section::before {
@@ -183,7 +184,8 @@ a:hover {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.twocolumns, ul:not(.twocolumns, .orbPpl, .orbFl) {
+/* Optimized multi-column grid layout rules */
+.twocolumns, ul:not(:is(.twocolumns, .orbPpl, .orbFl)) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 15px;
@@ -191,7 +193,7 @@ a:hover {
     list-style: none;
 }
 
-.twocolumns li, ul:not(.twocolumns, .orbPpl, .orbFl) li {
+.twocolumns li, ul:not(:is(.twocolumns, .orbPpl, .orbFl)) li {
     background: rgba(139, 69, 19, 0.1);
     padding: 12px 15px;
     border-radius: 8px;
@@ -199,7 +201,7 @@ a:hover {
     transition: all 0.3s ease;
 }
 
-.twocolumns li:hover, ul:not(.twocolumns, .orbPpl, .orbFl) li:hover {
+.twocolumns li:hover, ul:not(:is(.twocolumns, .orbPpl, .orbFl)) li:hover {
     background: rgba(139, 69, 19, 0.2);
     transform: translateX(5px);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
@@ -312,7 +314,7 @@ footer a {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .twocolumns, ul:not(.twocolumns, .orbPpl, .orbFl) {
+    .twocolumns, ul:not(:is(.twocolumns, .orbPpl, .orbFl)) {
         grid-template-columns: 1fr;
     }
     
