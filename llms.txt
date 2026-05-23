@@ -1,0 +1,15 @@
+# America's Country
+
+A premier internet radio station delivering three decades of exceptional country music, spanning from the 1990s through today's current hits.
+
+## Station Overview
+- **Formats & Genres:** Mainstream Country, 90s Country Classics, and Modern Country Hits.
+- **Morning Show:** Features the "John & Heidi Show" during morning broadcast hours.
+- **Specialty Programming:** "Texas Countdown" broadcasts every Sunday at 12:00 PM (Noon) Mountain Time.
+
+## Technical & Streaming Specifications
+The station utilizes high-fidelity audio delivery and robust, dedicated automation hardware. It is fully compatible with custom smart home integrations, including a dedicated Amazon Alexa Skill.
+
+### Audio Streams
+- **High-Quality Stream:** 128 kb/s LC-AAC (Advanced Audio Coding - Low Complexity)
+- **Bandwidth-Efficient Stream:** 64 kb/s HE-AAC (High-Efficiency Advanced Audio Coding)
