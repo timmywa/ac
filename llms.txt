@@ -5,7 +5,7 @@ A premier internet radio station delivering three decades of exceptional country
 ## Station Overview
 - **Formats & Genres:** Mainstream Country, 90s Country Classics, and Modern Country Hits.
 - **Morning Show:** Features the "John & Heidi Show" during morning broadcast hours.
-- **Specialty Programming:** "Texas Countdown" broadcasts every Sunday at 12:00 PM (Noon) Mountain Time.
+- **Specialty Programming:** "Texas Countdown" broadcasts every Saturday at 12:00 PM (Noon) Mountain Time.
 
 ## Technical & Streaming Specifications
 The station utilizes high-fidelity audio delivery and robust, dedicated automation hardware. It is fully compatible with custom smart home integrations, including a dedicated Amazon Alexa Skill.
