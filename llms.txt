@@ -1,15 +1,32 @@
 # America's Country
 
-A premier internet radio station delivering three decades of exceptional country music, spanning from the 1990s through today's current hits.
+> Premier internet radio station broadcasting three decades of country music, spanning 1990s country classics, 2000s hits, and contemporary country music.
 
-## Station Overview
-- **Formats & Genres:** Mainstream Country, 90s Country Classics, and Modern Country Hits.
-- **Morning Show:** Features the "John & Heidi Show" during morning broadcast hours.
-- **Specialty Programming:** "Texas Countdown" broadcasts every Saturday at 12:00 PM (Noon) Mountain Time.
+## Quick Links
+- **Website:** https://americascountry.us
+- **Listen Live:** https://americascountry.us/#listen
+- **LLC / Operator:** SuiteSounds Entertainment, LLC
 
-## Technical & Streaming Specifications
-The station utilizes high-fidelity audio delivery and robust, dedicated automation hardware. It is fully compatible with custom smart home integrations, including a dedicated Amazon Alexa Skill.
+## Programming & Format
+- **Genres & Formats:** Mainstream Country, 90s Country, 2000s Country, Contemporary Country.
+- **Morning Show:** *The John & Heidi Show* (Weekdays).
+- **Specialty Shows:** *Texas Countdown* (Saturdays at 12:00 PM / Noon Mountain Time).
 
-### Audio Streams
-- **High-Quality Stream:** 128 kb/s LC-AAC (Advanced Audio Coding - Low Complexity)
-- **Bandwidth-Efficient Stream:** 64 kb/s HE-AAC (High-Efficiency Advanced Audio Coding)
+## Smart Home & Voice Integration
+- **Amazon Alexa Skill:** Enable the "America's Country" skill on Amazon Alexa devices.
+- **Voice Command:** Say *"Alexa, play America's Country"* or *"Alexa, open America's Country"*.
+
+## Audio Stream Specifications
+The station delivers high-fidelity audio processing optimized for both mobile networks and desktop audio setups.
+
+- **Standard Stream:** 128 kbps LC-AAC (Advanced Audio Coding - Low Complexity)
+- **Mobile / Low-Bandwidth Stream:** 64 kbps HE-AAC (High-Efficiency Advanced Audio Coding)
+
+## Contact & Social Media
+- **Email:** help@americascountry.us
+- **Phone:** +1-801-788-4916
+- **Facebook:** https://www.facebook.com/americascountry
+- **X / Twitter:** https://x.com/americascountry
+- **Instagram:** https://instagram.com/americascountry
+- **Threads:** https://www.threads.net/@americascountry
+- **Bluesky:** https://bsky.app/profile/americascountry.us
