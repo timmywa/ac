@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>America's Country - Listen Live</title>
+    <title>America's Country - Listen Live | Three Decades of Country</title>
     
     <link rel="preconnect" href="https://onlineradiobox.com" crossorigin>
     <link rel="dns-prefetch" href="https://ecdn.onlineradiobox.com">
     <link rel="dns-prefetch" href="https://cdn.onlineradiobox.com">
+    <link rel="preconnect" href="https://ais-sa2.cdnstream1.com" crossorigin>
 
     <link rel="preload" href="css/main.css?v=1.3" as="style">
     <link rel="preload" href="images/Site%20Banner-option3_1_1.webp" as="image" fetchpriority="high">
 
-    <meta name="description" content="Stream America's Country! Enjoy three decades of country from the 90s to today. Listen now on any device - no registration required.">
+    <meta name="description" content="Stream America's Country! Enjoy three decades of country music from the 90s to today. Listen live on any device with no registration required.">
     <meta name="author" content="SuiteSounds Entertainment, LLC">
     <link rel="canonical" href="https://americascountry.us/">
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
@@ -30,15 +31,31 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "RadioStation",
-      "name": "America's Country",
-      "url": "https://americascountry.us/",
-      "description": "Stream America's Country! Enjoy three decades of country from the 90s to today.",
-      "slogan": "Three DECADES of Country!",
-      "sameAs": [
-        "https://www.facebook.com/americascountry",
-        "https://x.com/americascountry",
-        "https://instagram.com/americascountry"
+      "@graph": [
+        {
+          "@type": ["RadioStation", "RadioBroadcastService"],
+          "@id": "https://americascountry.us/#station",
+          "name": "America's Country",
+          "url": "https://americascountry.us/",
+          "logo": "https://americascountry.us/images/logo-5001.png",
+          "image": "https://americascountry.us/images/Site%20Banner-option3_1_1.webp",
+          "description": "Stream America's Country! Enjoy three decades of country music from the 90s to today.",
+          "slogan": "Three DECADES of Country!",
+          "genre": ["Country", "90s Country", "2000s Country", "Contemporary Country"],
+          "email": "help@americascountry.us",
+          "telephone": "+1-801-788-4916",
+          "broadcaster": {
+            "@type": "Organization",
+            "name": "SuiteSounds Entertainment, LLC"
+          },
+          "sameAs": [
+            "https://www.facebook.com/americascountry",
+            "https://x.com/americascountry",
+            "https://instagram.com/americascountry",
+            "https://www.threads.net/@americascountry",
+            "https://bsky.app/profile/americascountry.us"
+          ]
+        }
       ]
     }
     </script>
@@ -47,14 +64,13 @@
 <body>
     <script>
         (function() {
-            // Instantly load theme preferences to stop page-flash stutters
             const savedTheme = localStorage.getItem('theme') || 'dark';
             document.documentElement.setAttribute('data-theme', savedTheme);
         })();
     </script>
     
-    <div class="theme-switcher" id="theme-switcher" onclick="toggleTheme()">
-        <span class="theme-icon" id="theme-icon">🌙</span>
+    <div class="theme-switcher" id="theme-switcher" onclick="toggleTheme()" role="button" tabindex="0" aria-label="Toggle light or dark theme">
+        <span class="theme-icon" id="theme-icon" aria-hidden="true">🌙</span>
         <span class="theme-switcher-text" id="theme-text">Dark</span>
     </div>
 
@@ -141,7 +157,7 @@
             <ul style="margin-top: 20px; margin-bottom: 20px;">
                 <li>
                     <a href="https://ais-sa2.cdnstream1.com/1976_128.mp3" target="_blank" rel="noopener noreferrer">
-                        ▶ PLAY 128 kb/s AAC (desktop)
+                        ▶ PLAY 128 kb/s MP3 (desktop)
                     </a>
                 </li>
                 <li>
@@ -209,81 +225,94 @@
             <p>You can also listen to <em>America's Country</em> on your Echo, Nest, or HomePod.</p>
             <ul>
                 <li>"Alexa, play America's Country on TuneIn Radio."</li>
-                <li>"OK, Google, play America's Country."</li>
+                <li>"OK Google, play America's Country."</li>
                 <li>"Hey Siri, play America's Country."</li>
             </ul>
         </section>
 
-        <section id="social">
+        <section id="social" itemscope itemtype="https://schema.org/RadioStation">
             <h2>📲 Follow Us on Social Media</h2>
-            <p>Stay connected and get the latest updates from <em>America's Country</em>!</p>
+            <p>Stay connected and get the latest updates from <em itemprop="name">America's Country</em>!</p>
             <div class="social-links">
-                <a href="https://x.com/americascountry" target="_blank" rel="noopener noreferrer" title="Follow us on X (Twitter)">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <a href="https://x.com/americascountry" target="_blank" rel="noopener noreferrer" title="Follow us on X (Twitter)" aria-label="Follow America's Country on X">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                     </svg>
                 </a>
-                <a href="https://www.facebook.com/americascountry" target="_blank" rel="noopener noreferrer" title="Follow us on Facebook">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <a href="https://www.facebook.com/americascountry" target="_blank" rel="noopener noreferrer" title="Follow us on Facebook" aria-label="Follow America's Country on Facebook">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                     </svg>
                 </a>
-                <a href="https://www.instagram.com/americascountry" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <a href="https://www.instagram.com/americascountry" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram" aria-label="Follow America's Country on Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                     </svg>
                 </a>
-                <a href="https://www.threads.net/@americascountry" target="_blank" rel="noopener noreferrer" title="Follow us on Threads">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <a href="https://www.threads.net/@americascountry" target="_blank" rel="noopener noreferrer" title="Follow us on Threads" aria-label="Follow America's Country on Threads">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.292 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.781 3.632 2.695 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.790-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.47-1.364 0 0-.648-.642-1.978-.69-1.118-.04-2.282.164-3.063.9-.843.794-1.222 1.974-1.222 1.974l-1.72-.453s.416-1.545 1.518-2.633c1.122-1.106 2.782-1.429 4.396-1.378 1.878.059 3.025.895 3.025.895.565.565 1.033 1.472 1.248 2.48a9.086 9.086 0 0 1 2.181 1.447c1.04.97 1.7 2.250 1.968 3.805.616 3.573-1.194 6.04-3.542 7.443-1.618.967-3.584 1.35-5.842 1.364zm3.314-14.7c-1.857-.03-3.583.123-4.844.372.494.372 1.375 1.193 1.375 3.908 0 .969-.179 1.827-.533 2.565a7.842 7.842 0 0 0 1.79-2.565c.533-1.07.794-2.59.794-4.51 0-1.193-.18-2.016-.582-2.77z"/>
                     </svg>
                 </a>
-                <a href="https://bsky.app/profile/americascountry.us" target="_blank" rel="noopener noreferrer" title="Follow us on Bluesky">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <a href="https://bsky.app/profile/americascountry.us" target="_blank" rel="noopener noreferrer" title="Follow us on Bluesky" aria-label="Follow America's Country on Bluesky">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 2.105.139 3.107.139 5.498.139 6.789c0 1.24.375 2.533.936 3.714.561 1.181 1.354 2.293 2.209 3.293C5.225 15.849 7.724 17.849 12 18.4c4.276-.551 6.775-2.551 8.716-4.604.855-1 1.648-2.112 2.209-3.293.561-1.181.936-2.474.936-3.714 0-1.291 0-3.682-.763-4.684C22.439 1.266 21.434.944 18.798 2.805 16.046 4.747 13.087 8.686 12 10.8z"/>
                     </svg>
                 </a>
             </div>
-            <p>If you need help or something isn't working right, please <a href="mailto:help@americascountry.us">email</a>, text or call us: <a href="tel:+18017884916">+1 (801) 788-4916</a>.</p>
+            <p>If you need help or something isn't working right, please <a href="mailto:help@americascountry.us" itemprop="email">email</a>, text or call us: <a href="tel:+18017884916" itemprop="telephone">+1 (801) 788-4916</a>.</p>
         </section>
     </main>
 
     <footer>
         <p>Thank you for visiting <em>America's Country</em>! All Rights Reserved.<br>
         Copyright © 2011 - <span id="current-year"></span> SuiteSounds Entertainment, LLC.</p>
-        <p><a href="https://stationplaylist.com" target="_blank" rel="noopener noreferrer"><img src="images/splpowered.png" alt="America's Country is powered by Station Playlist" width="88" height="31" loading="lazy" style="margin-right: 20px;"></a><a href="https://angryaudio.com/products/c6s/" target="_blank" rel="noopener noreferrer"><img src="images/AAlogo88x31.jpg" alt="Angry Audio Chameleon Audio Processing" width="88" height="31" loading="lazy"></a></p>
+        <p>
+            <a href="https://stationplaylist.com" target="_blank" rel="noopener noreferrer" aria-label="StationPlaylist Automation Software">
+                <img src="images/splpowered.png" alt="America's Country is powered by Station Playlist" width="88" height="31" loading="lazy" style="margin-right: 20px;">
+            </a>
+            <a href="https://angryaudio.com/products/c6s/" target="_blank" rel="noopener noreferrer" aria-label="Angry Audio Chameleon Audio Processing">
+                <img src="images/AAlogo88x31.jpg" alt="Angry Audio Chameleon Audio Processing" width="88" height="31" loading="lazy">
+            </a>
+        </p>
         <div id="donate-button-container">
             <div id="donate-button"></div>
         </div>
     </footer>
 
-    <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js"></script>
+    <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" defer></script>
     <script>
-        // Sync custom state configurations
         let currentTheme = localStorage.getItem('theme') || 'dark';
 
-        // Update copyright year on page load
         document.addEventListener('DOMContentLoaded', () => {
             const currentYearEl = document.getElementById('current-year');
             if (currentYearEl) {
                 currentYearEl.textContent = new Date().getFullYear();
             }
             
-            // Render interface updates based on initial blocking value
             applyTheme(currentTheme);
             updateThemeUI();
-        });
-        
-        // PayPal donation button
-        PayPal.Donation.Button({
-            env: 'production',
-            hosted_button_id: 'AG8ADTWQ3VKRE',
-            image: {
-                src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif',
-                alt: 'Donate with PayPal button',
-                loading: 'lazy'
+
+            // Lazy-render PayPal button once SDK script loads
+            if (window.PayPal && PayPal.Donation) {
+                renderPayPal();
+            } else {
+                window.addEventListener('load', renderPayPal);
             }
-        }).render('#donate-button');
+        });
+
+        function renderPayPal() {
+            if (document.getElementById('donate-button').children.length > 0) return;
+            PayPal.Donation.Button({
+                env: 'production',
+                hosted_button_id: 'AG8ADTWQ3VKRE',
+                image: {
+                    src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif',
+                    alt: 'Donate with PayPal button',
+                    loading: 'lazy'
+                }
+            }).render('#donate-button');
+        }
 
         function toggleTheme() {
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -310,16 +339,7 @@
                 themeText.textContent = 'Dark';
             }
         }
-    </script>
-    <script defer async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7092128557292662" crossorigin="anonymous"></script>
-    <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-7PSR0H57RS"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-7PSR0H57RS');
-    </script>
-    <script>
+
         function toggleServices() {
             const wrapper = document.getElementById('services-wrapper');
             const btn = document.getElementById('view-more-btn');
@@ -333,6 +353,14 @@
                 document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
             }
         }
+    </script>
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7092128557292662" crossorigin="anonymous"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-7PSR0H57RS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-7PSR0H57RS');
     </script>
 </body>
 </html>
