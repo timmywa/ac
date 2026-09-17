@@ -36,7 +36,7 @@
     box-sizing: border-box;
 }
 
-/* merriweather-300 - latin */
+/* Fonts */
 @font-face {
   font-display: swap;
   font-family: 'Merriweather';
@@ -44,7 +44,6 @@
   font-weight: 300;
   src: url('../fonts/merriweather-v33-latin-300.woff2') format('woff2');
 }
-/* merriweather-regular - latin */
 @font-face {
   font-display: swap;
   font-family: 'Merriweather';
@@ -52,7 +51,6 @@
   font-weight: 400;
   src: url('../fonts/merriweather-v33-latin-regular.woff2') format('woff2');
 }
-/* merriweather-700 - latin */
 @font-face {
   font-display: swap;
   font-family: 'Merriweather';
@@ -60,7 +58,6 @@
   font-weight: 700;
   src: url('../fonts/merriweather-v33-latin-700.woff2') format('woff2');
 }
-/* rye-regular - latin */
 @font-face {
   font-display: swap;
   font-family: 'Rye';
@@ -68,7 +65,6 @@
   font-weight: 400;
   src: url('../fonts/rye-v17-latin-regular.woff2') format('woff2');
 }
-/* bree-serif-regular - latin */
 @font-face {
   font-display: swap;
   font-family: 'Bree Serif';
@@ -237,7 +233,7 @@ a:hover {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Optimized multi-column grid layout rules (EXCLUDING social-links) */
+/* Multi-column grid layout rules (excludes social links & player widgets) */
 .twocolumns, ul:not(:is(.twocolumns, .orbPpl, .orbFl, .social-links)) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -265,6 +261,7 @@ a:hover {
     display: block !important;
 }
 
+/* Expandable list wrapper & button */
 .expandable-wrapper {
     max-height: 350px;
     overflow: hidden;
@@ -310,7 +307,17 @@ a:hover {
     transform: scale(1.05);
 }
 
-/* Social Media Links */
+/* Smart Speaker Commands */
+#smart ul li {
+    background: rgba(218, 165, 32, 0.08);
+    padding: 15px;
+    border-radius: 8px;
+    font-style: italic;
+    font-weight: 500;
+    border-left: 4px solid var(--gold);
+}
+
+/* Social Media Links (Horizontal Flex Layout) */
 .social-links {
     display: flex !important;
     justify-content: center;
@@ -333,8 +340,8 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     background: var(--rust-red);
     color: white;
     border-radius: 50%;
@@ -350,8 +357,9 @@ a:hover {
 
 .social-links svg {
     display: block;
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
 }
 
 /* Footer */
@@ -396,7 +404,6 @@ footer a {
     }
 }
 
-/* Staggered load for sections */
 section:nth-of-type(1) { animation-delay: 0.1s; }
 section:nth-of-type(2) { animation-delay: 0.2s; }
 section:nth-of-type(3) { animation-delay: 0.3s; }
