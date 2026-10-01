@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>America's Country Classics | Classic Country Music 24/7</title>
+    <meta name="description" content="Listen to America's Country Classics live – broadcasting classic country hits from the 70s, 80s, and 90s.">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="music.radio_station">
+    <meta property="og:title" content="America's Country Classics">
+    <meta property="og:description" content="Classic Country Hits 24/7">
+    <meta property="og:url" content="https://americascountry.us/classics">
+    <meta property="og:image" content="https://americascountry.us/classics/images/og-banner.jpg">
+
+    <!-- Preloading and Resource Hints -->
+    <link rel="preconnect" href="https://americascountry.us">
+
+    <!-- Schema.org Radio Station Metadata -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RadioStation",
+      "name": "America's Country Classics",
+      "url": "https://americascountry.us/classics",
+      "logo": "https://americascountry.us/classics/images/logo.png",
+      "sameAs": [
+        "https://www.facebook.com/AmericasCountryClassics",
+        "https://www.instagram.com/classics.acc/"
+      ]
+    }
+    </script>
+    
+    <style>
+        /* Local Rajdhani Font Declarations */
+        @font-face {
+            font-family: 'Rajdhani';
+            src: url('/fonts/Rajdhani-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Rajdhani';
+            src: url('/fonts/Rajdhani-Medium.woff2') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Rajdhani';
+            src: url('/fonts/Rajdhani-SemiBold.woff2') format('woff2');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Rajdhani';
+            src: url('/fonts/Rajdhani-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Root Color Variables */
+        :root {
+            --bg-dark: #121212;
+            --bg-card: #1c1a17;
+            --accent-gold: #f59e0b;
+            --accent-amber: #d97706;
+            --text-light: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #2e2823;
+        }
+
+        /* Global Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            background: linear-gradient(180deg, #1f1915 0%, #121212 100%);
+            border-bottom: 2px solid var(--accent-amber);
+            padding: 25px 15px;
+            text-align: center;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Scalable SVG Branding Header */
+        .brand-header-svg {
+            width: 100%;
+            max-width: 650px;
+            height: auto;
+            display: block;
+        }
+
+        main {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 30px 15px;
+            flex: 1;
+        }
+
+        .player-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        /* Player Embed Placeholder Container */
+        .player-container {
+            width: 100%;
+            min-height: 160px;
+            background-color: #0d0d0d;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #332d27;
+            padding: 20px;
+            transition: border-color 0.3s ease;
+        }
+
+        .player-placeholder-text {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .player-placeholder-sub {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .social-links svg {
+            flex-shrink: 0;
+        }
+
+        footer {
+            background-color: #0a0a0a;
+            border-top: 1px solid var(--border-color);
+            padding: 25px 15px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.75rem; }
+            h2 { font-size: 1rem; }
+            .player-card { padding: 20px 15px; }
+            .social-links { gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <!-- Scalable SVG Header Banner / Logo -->
+            <svg class="brand-header-svg" viewBox="0 0 600 140" xmlns="http://www.w3.org/2000/svg" aria-label="America's Country Classics Logo">
+                <defs>
+                    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#fbbf24"/>
+                        <stop offset="100%" stop-color="#d97706"/>
+                    </linearGradient>
+                </defs>
+                <!-- Main Title -->
+                <text x="300" y="55" font-family="Rajdhani, sans-serif" font-weight="700" font-size="42" fill="#FFFFFF" text-anchor="middle" letter-spacing="3">
+                    AMERICA'S COUNTRY
+                </text>
+                <!-- Subtitle Badge -->
+                <rect x="180" y="75" width="240" height="36" rx="6" fill="url(#goldGrad)" />
+                <text x="300" y="100" font-family="Rajdhani, sans-serif" font-weight="700" font-size="24" fill="#121212" text-anchor="middle" letter-spacing="5">
+                    CLASSICS
+                </text>
+            </svg>
+        </div>
+    </header>
+
+    <main>
+        <section class="player-card">
+            <h1>America's Country Classics</h1>
+            <h2>The Greatest Country Hits of the 70s, 80s & 90s</h2>
+            
+            <!-- STREAM PLAYER PLACEHOLDER CONTAINER -->
+            <!-- Drop your BreakawayOne / Web Player snippet or <iframe> directly inside here -->
+            <div class="player-container" id="stream-player-slot">
+                <p class="player-placeholder-text">📻 Launching Soon!</p>
+                <p class="player-placeholder-sub">Stream player & real-time now-playing info will appear here.</p>
+            </div>
+
+            <!-- Social Media Section -->
+            <div class="social-links">
+                <a href="https://www.facebook.com/AmericasCountryClassics" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    <span>/AmericasCountryClassics</span>
+                </a>
+                <a href="https://www.instagram.com/classics.acc/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    <span>@classics.acc</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 <a href="https://americascountry.us">America's Country</a>. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
