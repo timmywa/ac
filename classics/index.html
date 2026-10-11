@@ -259,6 +259,49 @@
             .player-card { padding: 20px 15px; }
             .social-links { gap: 15px; }
         }
+        /* Countdown Timer Styling */
+        .countdown-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .countdown-label {
+            font-family: 'Bree Serif', serif;
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .time-box {
+            background-color: #121212;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px 15px;
+            min-width: 70px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .time-box span:first-child {
+            font-family: 'Rye', cursive, serif;
+            font-size: 1.5rem;
+            color: var(--text-light);
+        }
+        
+        .time-label {
+            font-family: 'Bree Serif', serif;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
     </style>
 </head>
 <body>
@@ -285,6 +328,17 @@
                 <p class="player-placeholder-text">📻 Launching Soon!</p>
                 <p class="player-placeholder-sub">Stream player & real-time now-playing info will appear here.</p>
             </div>
+            
+            <!-- Countdown Timer Container -->
+            <div class="countdown-container">
+                <p class="countdown-label">📻 Launching In:</p>
+                <div id="countdown-timer" class="countdown-timer">
+                    <div class="time-box"><span id="days">00</span><span class="time-label">Days</span></div>
+                    <div class="time-box"><span id="hours">00</span><span class="time-label">Hours</span></div>
+                    <div class="time-box"><span id="minutes">00</span><span class="time-label">Mins</span></div>
+                    <div class="time-box"><span id="seconds">00</span><span class="time-label">Secs</span></div>
+                </div>
+            </div>
 
             <!-- Social Media Links -->
             <div class="social-links">
@@ -307,6 +361,35 @@
     <footer>
         <p>&copy; 2026 SuiteSounds Entertainment, LLC. All Rights Reserved.</p>
     </footer>
+<script>
+    // Set the target date: December 26, 2026, at 08:00:00 in Mountain Time (MST/MDT)
+    const targetDate = new Date("2026-12-26T08:00:00-07:00").getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+
+        if (difference <= 0) {
+            document.getElementById("countdown-timer").innerHTML = "<p style='color: var(--accent-gold); font-family: \"Bree Serif\", serif; font-size: 1.2rem;'>We are live!</p>";
+            clearInterval(timerInterval);
+            return;
+        }
+
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = String(days).padStart(2, '0');
+        document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+        document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+        document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+    }
+
+    // Run immediately and update every second
+    updateCountdown();
+    const timerInterval = setInterval(updateCountdown, 1000);
+</script>
 
 </body>
 </html>
