@@ -40,9 +40,7 @@
     </script>
     
     <style>
-        /* Local Fonts Declarations (Referencing Root /fonts/) */
-        
-        /* Bree Serif - Regular */
+        /* Local Fonts Declarations */
         @font-face {
             font-family: 'Bree Serif';
             src: url('/fonts/bree-serif-v18-latin-regular.woff2') format('woff2');
@@ -51,7 +49,6 @@
             font-display: swap;
         }
 
-        /* Merriweather - Light (300) */
         @font-face {
             font-family: 'Merriweather';
             src: url('/fonts/merriweather-v33-latin-300.woff2') format('woff2');
@@ -60,7 +57,6 @@
             font-display: swap;
         }
 
-        /* Merriweather - Regular (400) */
         @font-face {
             font-family: 'Merriweather';
             src: url('/fonts/merriweather-v33-latin-regular.woff2') format('woff2');
@@ -69,7 +65,6 @@
             font-display: swap;
         }
 
-        /* Merriweather - Bold (700) */
         @font-face {
             font-family: 'Merriweather';
             src: url('/fonts/merriweather-v33-latin-700.woff2') format('woff2');
@@ -78,7 +73,6 @@
             font-display: swap;
         }
 
-        /* Rye - Western Headline Display */
         @font-face {
             font-family: 'Rye';
             src: url('/fonts/rye-v17-latin-regular.woff2') format('woff2');
@@ -132,12 +126,18 @@
             justify-content: center;
         }
 
-        /* Scalable SVG Branding Header */
-        .brand-header-svg {
+        /* Logo Image Styling */
+        .site-logo {
+            max-width: 320px;
             width: 100%;
-            max-width: 680px;
             height: auto;
             display: block;
+            filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.6));
+            transition: transform 0.2s ease;
+        }
+
+        .site-logo:hover {
+            transform: scale(1.02);
         }
 
         main {
@@ -176,7 +176,7 @@
             margin-bottom: 25px;
         }
 
-        /* Player Embed Placeholder Container */
+        /* Player Container */
         .player-container {
             width: 100%;
             min-height: 160px;
@@ -253,6 +253,7 @@
         }
 
         @media (max-width: 600px) {
+            .site-logo { max-width: 240px; }
             h1 { font-size: 1.75rem; }
             h2 { font-size: 1.05rem; }
             .player-card { padding: 20px 15px; }
@@ -264,39 +265,28 @@
 
     <header>
         <div class="header-container">
-            <!-- Scalable SVG Header Banner / Logo -->
-            <svg class="brand-header-svg" viewBox="0 0 650 140" xmlns="http://www.w3.org/2000/svg" aria-label="America's Country Classics Logo">
-                <defs>
-                    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stop-color="#fbbf24"/>
-                        <stop offset="100%" stop-color="#d97706"/>
-                    </linearGradient>
-                </defs>
-                <!-- Main Title using Rye -->
-                <text x="325" y="55" font-family="'Rye', cursive, serif" font-size="38" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">
-                    AMERICA'S COUNTRY
-                </text>
-                <!-- Subtitle Badge using Bree Serif -->
-                <rect x="205" y="75" width="240" height="38" rx="6" fill="url(#goldGrad)" />
-                <text x="325" y="102" font-family="'Bree Serif', serif" font-weight="400" font-size="24" fill="#121212" text-anchor="middle" letter-spacing="4">
-                    CLASSICS
-                </text>
-            </svg>
+            <a href="https://americascountry.us/classics">
+                <img 
+                    src="images/acc-profile-logo.png" 
+                    alt="America's Country Classics Logo" 
+                    class="site-logo"
+                >
+            </a>
         </div>
     </header>
 
     <main>
-<section class="player-card">
-    <h1>America's Country Classics</h1>
-    <h2>You grew up here... Remember Classic Country Hits from the 90s and 2000s</h2>
-    
-    <!-- STREAM PLAYER PLACEHOLDER CONTAINER -->
-    <div class="player-container" id="stream-player-slot">
-        <p class="player-placeholder-text">📻 Launching Soon!</p>
-        <p class="player-placeholder-sub">Stream player & real-time now-playing info will appear here.</p>
-    </div>
+        <section class="player-card">
+            <h1>America's Country Classics</h1>
+            <h2>You grew up here... Remember Classic Country Hits from the 90s and 2000s</h2>
+            
+            <!-- STREAM PLAYER PLACEHOLDER CONTAINER -->
+            <div class="player-container" id="stream-player-slot">
+                <p class="player-placeholder-text">📻 Launching Soon!</p>
+                <p class="player-placeholder-sub">Stream player & real-time now-playing info will appear here.</p>
+            </div>
 
-    <!-- Social Media Links -->
+            <!-- Social Media Links -->
             <div class="social-links">
                 <a href="https://www.facebook.com/AmericasCountryClassics" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
