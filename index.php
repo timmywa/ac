@@ -118,195 +118,196 @@ if (file_exists($history_file)) {
             <h1><span class="tagline">Three Decades of Country!</span></h1>
         </header>
 
-     <section id="tunein">
+        <section id="tunein">
             <h2>🎵 Listen Now!</h2>
             <p>Click the <strong>play</strong> button in the player below to start listening to America's Country!</p>
             
-        <!-- Live Stream Player -->
-        <div class="ac-radio-player-card">
-            <div class="ac-player-header">
-                <span class="ac-live-badge">LIVE</span>
-                <span class="ac-station-slogan">Three DECADES of Country</span>
-            </div>
+            <!-- Live Stream Player -->
+            <div class="ac-radio-player-card">
+                <div class="ac-player-header">
+                    <span class="ac-live-badge">LIVE</span>
+                    <span class="ac-station-slogan">Three DECADES of Country</span>
+                </div>
 
-            <div class="ac-player-main-flex">
-                <img id="album-art" src="images/logo-5001.png" alt="Album Art" crossorigin="anonymous">
-                <div class="ac-now-playing-box">
-                    <span class="ac-label">NOW PLAYING</span>
-                    <div id="now-playing-track" class="ac-track-title"><?php echo htmlspecialchars($initial_current); ?></div>
+                <div class="ac-player-main-flex">
+                    <img id="album-art" src="images/logo-5001.png" alt="Album Art" crossorigin="anonymous">
+                    <div class="ac-now-playing-box">
+                        <span class="ac-label">NOW PLAYING</span>
+                        <div id="now-playing-track" class="ac-track-title"><?php echo htmlspecialchars($initial_current); ?></div>
+                    </div>
+                </div>
+
+                <audio id="ac-audio-stream" controls preload="none" style="width: 100%; margin: 15px 0;">
+                    <source src="https://ais-sa2.cdnstream1.com/1976_128.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+
+                <div class="ac-history-section">
+                    <span class="ac-history-label">Recently Played</span>
+                    <ul id="ac-history-list" class="ac-history-list">
+                        <?php foreach ($initial_history as $track): ?>
+                            <li><?php echo htmlspecialchars($track); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
                 </div>
             </div>
 
-            <audio id="ac-audio-stream" controls preload="none" style="width: 100%; margin: 15px 0;">
-                <source src="https://ais-sa2.cdnstream1.com/1976_128.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
+            <style>
+            .ac-radio-player-card {
+                background: #1a1512;
+                color: #f4eee1;
+                border: 1px solid #3d2f24;
+                border-radius: 8px;
+                padding: 22px;
+                max-width: 480px;
+                font-family: inherit;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                margin: 20px auto;
+            }
+            .ac-player-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 15px;
+                border-bottom: 1px solid #3d2f24;
+                padding-bottom: 10px;
+            }
+            .ac-player-main-flex {
+                display: flex;
+                align-items: center;
+                gap: 18px;
+                margin-bottom: 8px;
+            }
+            #album-art {
+                width: 100px;
+                height: 100px;
+                border-radius: 6px;
+                object-fit: cover;
+                border: 1px solid #3d2f24;
+                background: #261f18;
+                flex-shrink: 0;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            }
+            .ac-live-badge {
+                background: #b85d1d;
+                color: #fff;
+                font-size: 11px;
+                font-weight: bold;
+                padding: 3px 8px;
+                border-radius: 4px;
+                letter-spacing: 1px;
+            }
+            .ac-station-slogan {
+                font-size: 13px;
+                color: #c8b6a6;
+                font-style: italic;
+            }
+            .ac-now-playing-box {
+                background: #261f18;
+                padding: 14px 16px;
+                border-radius: 6px;
+                border-left: 4px solid #b85d1d;
+                flex-grow: 1;
+            }
+            .ac-label {
+                font-size: 10px;
+                letter-spacing: 1.5px;
+                color: #b85d1d;
+                font-weight: bold;
+                display: block;
+                margin-bottom: 6px;
+            }
+            .ac-track-title {
+                font-size: 15px;
+                font-weight: 600;
+                color: #ffffff;
+                line-height: 1.35;
+            }
+            .ac-history-section {
+                margin-top: 15px;
+                border-top: 1px solid #3d2f24;
+                padding-top: 12px;
+            }
+            .ac-history-label {
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: #9e8b7c;
+                display: block;
+                margin-bottom: 8px;
+            }
+            .ac-history-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .ac-history-list li {
+                font-size: 13px;
+                color: #c8b6a6;
+                padding: 5px 0;
+                border-bottom: 1px dashed #2d231b;
+            }
+            .ac-history-list li:last-child {
+                border-bottom: none;
+            }
+            </style>
 
-            <div class="ac-history-section">
-                <span class="ac-history-label">Recently Played</span>
-                <ul id="ac-history-list" class="ac-history-list">
-                    <?php foreach ($initial_history as $track): ?>
-                        <li><?php echo htmlspecialchars($track); ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        </div>
-<style>
-         .ac-radio-player-card {
-            background: #1a1512;
-            color: #f4eee1;
-            border: 1px solid #3d2f24;
-            border-radius: 8px;
-            padding: 22px;
-            max-width: 480px; /* Slightly wider to accommodate larger art */
-            font-family: inherit;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            margin: 20px auto;
-        }
-        .ac-player-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #3d2f24;
-            padding-bottom: 10px;
-        }
-        .ac-player-main-flex {
-            display: flex;
-            align-items: center;
-            gap: 18px; /* Slightly more space between art and text */
-            margin-bottom: 8px;
-        }
-        #album-art {
-            width: 100px;  /* Increased from 65px to 100px */
-            height: 100px; /* Increased from 65px to 100px */
-            border-radius: 6px;
-            object-fit: cover;
-            border: 1px solid #3d2f24;
-            background: #261f18;
-            flex-shrink: 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-        }
-        .ac-live-badge {
-            background: #b85d1d;
-            color: #fff;
-            font-size: 11px;
-            font-weight: bold;
-            padding: 3px 8px;
-            border-radius: 4px;
-            letter-spacing: 1px;
-        }
-        .ac-station-slogan {
-            font-size: 13px;
-            color: #c8b6a6;
-            font-style: italic;
-        }
-        .ac-now-playing-box {
-            background: #261f18;
-            padding: 14px 16px;
-            border-radius: 6px;
-            border-left: 4px solid #b85d1d;
-            flex-grow: 1;
-        }
-        .ac-label {
-            font-size: 10px;
-            letter-spacing: 1.5px;
-            color: #b85d1d;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 6px;
-        }
-        .ac-track-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: #ffffff;
-            line-height: 1.35;
-        }
-        .ac-history-section {
-            margin-top: 15px;
-            border-top: 1px solid #3d2f24;
-            padding-top: 12px;
-        }
-        .ac-history-label {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #9e8b7c;
-            display: block;
-            margin-bottom: 8px;
-        }
-        .ac-history-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .ac-history-list li {
-            font-size: 13px;
-            color: #c8b6a6;
-            padding: 5px 0;
-            border-bottom: 1px dashed #2d231b;
-        }
-        .ac-history-list li:last-child {
-            border-bottom: none;
-        }
-     </syle>
+            <script>
+            let lastFetchedTrack = "";
 
-        <script>
-        let lastFetchedTrack = "";
+            function updatePlayerState() {
+                fetch('/nowplaying.php?t=' + Date.now())
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.current && data.current.full) {
+                            const trackFull = data.current.full;
+                            document.getElementById('now-playing-track').textContent = trackFull;
 
-        function updatePlayerState() {
-            fetch('/nowplaying.php?t=' + Date.now())
-                .then(res => res.json())
-                .then(data => {
-                    if (data.current && data.current.full) {
-                        const trackFull = data.current.full;
-                        document.getElementById('now-playing-track').textContent = trackFull;
-
-                        if (trackFull !== lastFetchedTrack && data.current.artist && data.current.title) {
-                            lastFetchedTrack = trackFull;
-                            fetchAlbumArt(data.current.artist, data.current.title);
+                            if (trackFull !== lastFetchedTrack && data.current.artist && data.current.title) {
+                                lastFetchedTrack = trackFull;
+                                fetchAlbumArt(data.current.artist, data.current.title);
+                            }
                         }
-                    }
 
-                    if (data.history && data.history.length > 0) {
-                        const historyList = document.getElementById('ac-history-list');
-                        historyList.innerHTML = '';
-                        data.history.forEach(track => {
-                            const li = document.createElement('li');
-                            li.textContent = track;
-                            historyList.appendChild(li);
-                        });
-                    }
-                })
-                .catch(err => console.warn('Player update check failed:', err));
-        }
+                        if (data.history && data.history.length > 0) {
+                            const historyList = document.getElementById('ac-history-list');
+                            historyList.innerHTML = '';
+                            data.history.forEach(track => {
+                                const li = document.createElement('li');
+                                li.textContent = track;
+                                historyList.appendChild(li);
+                            });
+                        }
+                    })
+                    .catch(err => console.warn('Player update check failed:', err));
+            }
 
-        function fetchAlbumArt(artist, title) {
-            const cleanArtist = artist.split(/ft\.|feat\.|&|,/i)[0].trim();
-            const cleanTitle = title.split(/\(|\[|live|remix/i)[0].trim();
-            
-            const query = encodeURIComponent(`${cleanArtist} ${cleanTitle}`);
-            const url = `https://itunes.apple.com/search?term=${query}&entity=song&limit=1`;
+            function fetchAlbumArt(artist, title) {
+                const cleanArtist = artist.split(/ft\.|feat\.|&|,/i)[0].trim();
+                const cleanTitle = title.split(/\(|\[|live|remix/i)[0].trim();
+                
+                const query = encodeURIComponent(`${cleanArtist} ${cleanTitle}`);
+                const url = `https://itunes.apple.com/search?term=${query}&entity=song&limit=1`;
 
-            fetch(url)
-                .then(res => res.json())
-                .then(result => {
-                    const artImg = document.getElementById('album-art');
-                    if (result.results && result.results.length > 0) {
-                        const highResArt = result.results[0].artworkUrl100.replace('100x100bb', '300x300bb');
-                        artImg.src = highResArt;
-                    } else {
-                        artImg.src = 'images/logo-5001.png';
-                    }
-                })
-                .catch(err => {
-                    console.warn('Could not load album art:', err);
-                });
-        }
+                fetch(url)
+                    .then(res => res.json())
+                    .then(result => {
+                        const artImg = document.getElementById('album-art');
+                        if (result.results && result.results.length > 0) {
+                            const highResArt = result.results[0].artworkUrl100.replace('100x100bb', '300x300bb');
+                            artImg.src = highResArt;
+                        } else {
+                            artImg.src = 'images/logo-5001.png';
+                        }
+                    })
+                    .catch(err => {
+                        console.warn('Could not load album art:', err);
+                    });
+            }
 
-        // Poll every 15 seconds to keep track, history, and artwork fresh
-        setInterval(updatePlayerState, 15000);
-        </script>
+            // Poll every 15 seconds to keep track, history, and artwork fresh
+            setInterval(updatePlayerState, 15000);
+            </script>
             
             <ul style="margin-top: 20px; margin-bottom: 20px;">
                 <li>
@@ -413,9 +414,9 @@ if (file_exists($history_file)) {
                     </svg>
                 </a>
             </div>
-<address itemscope itemtype="https://schema.org/Organization">
-    If you need help or something isn't working right, please <a href="mailto:help@americascountry.us"><span itemprop="email">help@americascountry.us</span></a>, text, or call us: <a href="tel:+18017884916" itemprop="telephone">+1 (801) 788-4916</a>.
-</address>        
+            <address itemscope itemtype="https://schema.org/Organization">
+                If you need help or something isn't working right, please <a href="mailto:help@americascountry.us"><span itemprop="email">help@americascountry.us</span></a>, text, or call us: <a href="tel:+18017884916" itemprop="telephone">+1 (801) 788-4916</a>.
+            </address>        
         </section>
     </main>
 
