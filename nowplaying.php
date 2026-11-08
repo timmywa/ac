@@ -41,7 +41,9 @@ if ($fp) {
                 $rawMeta = @fread($fp, $length);
                 if (preg_match("/StreamTitle='(.*?)';/i", $rawMeta, $matches)) {
                     $rawTitle = trim($matches[1]);
-                    if (!empty($rawTitle)) {
+                    
+                    // Filter out commercial automation tags like adwtag_
+                    if (!empty($rawTitle) && stripos($rawTitle, 'adwtag_') === false) {
                         $current_full = $rawTitle;
                         if (strpos($rawTitle, ' - ') !== false) {
                             list($art, $tit) = explode(' - ', $rawTitle, 2);
@@ -89,9 +91,8 @@ if (!$is_default && $top_song !== $current_full) {
         'time'  => time()
     ]);
 
-    // Slice to keep exactly 4
-$history = array_slice($history, 0, 4);
-
+    // Keep 4 items total so shifting off the current song leaves 3 history items
+    $history = array_slice($history, 0, 4);
 
     // Save back to disk
     @file_put_contents($history_file, json_encode($history));
