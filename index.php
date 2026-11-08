@@ -250,7 +250,7 @@ function formatTrackHtml($trackString) {
             .ac-history-section {
                 margin-top: 15px;
                 border-top: 1px solid #3d2f24;
-                padding-top: 12px;
+                padding-top: 10px;
             }
             .ac-history-label {
                 font-size: 11px;
@@ -258,7 +258,7 @@ function formatTrackHtml($trackString) {
                 letter-spacing: 1px;
                 color: #9e8b7c;
                 display: block;
-                margin-bottom: 8px;
+                margin-bottom: 6px;
             }
             .ac-history-list {
                 list-style: none !important;
@@ -266,9 +266,10 @@ function formatTrackHtml($trackString) {
                 margin: 0 !important;
             }
             .ac-history-list li {
-                font-size: 13px;
+                font-size: 12.5px;
+                line-height: 1.3;
                 color: #c8b6a6;
-                padding: 5px 0 !important;
+                padding: 3px 0 !important;
                 margin: 0 !important;
                 background: transparent !important;
                 border: none !important;
