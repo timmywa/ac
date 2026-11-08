@@ -161,39 +161,137 @@
             </script>
             </div> -->
         <!-- Live Stream Player -->
-<div class="ac-player-container">
-    <div class="ac-now-playing">
-        <span class="label">NOW PLAYING:</span>
-        <span id="now-playing-track">Loading track info...</span>
+<div class="ac-radio-player-card">
+    <div class="ac-player-header">
+        <span class="ac-live-badge">LIVE</span>
+        <span class="ac-station-slogan">Three DECADES of Country</span>
     </div>
-    
-    <audio id="ac-stream-player" controls preload="none">
+
+    <div class="ac-now-playing-box">
+        <span class="ac-label">NOW PLAYING</span>
+        <div id="now-playing-track" class="ac-track-title"><?php echo htmlspecialchars($initial_current); ?></div>
+    </div>
+
+    <audio id="ac-audio-stream" controls preload="none" style="width: 100%; margin: 15px 0;">
         <source src="https://ais-sa2.cdnstream1.com/1976_128.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
+
+    <div class="ac-history-section">
+        <span class="ac-history-label">Recently Played</span>
+        <ul id="ac-history-list" class="ac-history-list">
+            <?php foreach ($initial_history as $track): ?>
+                <li><?php echo htmlspecialchars($track); ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
 </div>
 
-<!-- Auto-refreshing Metadata Script -->
+<style>
+.ac-radio-player-card {
+    background: #1a1512;
+    color: #f4eee1;
+    border: 1px: solid #3d2f24;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 450px;
+    font-family: inherit;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.ac-player-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #3d2f24;
+    padding-bottom: 10px;
+}
+.ac-live-badge {
+    background: #b85d1d;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+.ac-station-slogan {
+    font-size: 13px;
+    color: #c8b6a6;
+    font-style: italic;
+}
+.ac-now-playing-box {
+    background: #261f18;
+    padding: 12px 15px;
+    border-radius: 6px;
+    border-left: 4px solid #b85d1d;
+}
+.ac-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: #b85d1d;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+}
+.ac-track-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+}
+.ac-history-section {
+    margin-top: 15px;
+    border-top: 1px solid #3d2f24;
+    padding-top: 12px;
+}
+.ac-history-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #9e8b7c;
+    display: block;
+    margin-bottom: 8px;
+}
+.ac-history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.ac-history-list li {
+    font-size: 13px;
+    color: #c8b6a6;
+    padding: 4px 0;
+    border-bottom: 1px dashed #2d231b;
+}
+.ac-history-list li:last-child {
+    border-bottom: none;
+}
+</style>
+
 <script>
-function fetchNowPlaying() {
-    fetch('/nowplaying.php')
-        .then(response => response.json())
+function updatePlayerState() {
+    fetch('/nowplaying.php?t=' + Date.now())
+        .then(res => res.json())
         .then(data => {
-            const trackElement = document.getElementById('now-playing-track');
-            if (trackElement && data.full) {
-                trackElement.textContent = data.full;
+            if (data.current && data.current.full) {
+                document.getElementById('now-playing-track').textContent = data.current.full;
+            }
+            if (data.history && data.history.length > 0) {
+                const historyList = document.getElementById('ac-history-list');
+                historyList.innerHTML = '';
+                data.history.forEach(track => {
+                    const li = document.createElement('li');
+                    li.textContent = track;
+                    historyList.appendChild(li);
+                });
             }
         })
-        .catch(err => console.error('Now Playing fetch error:', err));
+        .catch(err => console.warn('Player update check failed:', err));
 }
 
-// Fetch immediately on load, then poll every 15 seconds
-document.addEventListener('DOMContentLoaded', () => {
-    fetchNowPlaying();
-    setInterval(fetchNowPlaying, 15000);
-});
+// Poll every 15 seconds to keep track and history fresh
+setInterval(updatePlayerState, 15000);
 </script>
-
             
             <ul style="margin-top: 20px; margin-bottom: 20px;">
                 <li>
