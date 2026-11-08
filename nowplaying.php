@@ -33,7 +33,6 @@ if ($fp) {
     }
 
     if ($metaInterval > 0) {
-        // Read past the audio bytes to reach the metadata block
         @fread($fp, $metaInterval);
         $lenByte = @fread($fp, 1);
         if ($lenByte !== false) {
@@ -68,43 +67,43 @@ if (file_exists($history_file)) {
     }
 }
 
-// Normalize history titles
+// Convert history items to flat title strings for checking
 $titles = array_map(function($item) {
     return is_array($item) ? ($item['title'] ?? '') : $item;
 }, $history);
 
-// Update history if a valid song is playing and different from the top entry
 $is_default = (strpos($current_full, "Three DECADES of Country") !== false);
 $top_song = !empty($titles) ? $titles[0] : '';
 
+// If we got a real track and it's different from the current top song
 if (!$is_default && $top_song !== $current_full) {
-    // Remove duplicate if it exists further down
+    // Filter out this song if it already exists lower in the history
     $history = array_values(array_filter($history, function($item) use ($current_full) {
         $t = is_array($item) ? ($item['title'] ?? '') : $item;
         return $t !== $current_full;
     }));
 
-    // Prepend new track
+    // Put the new song at the top of the stack
     array_unshift($history, [
         'title' => $current_full,
         'time'  => time()
     ]);
 
-    // Keep only top 3
+    // Slice to keep exactly 3
     $history = array_slice($history, 0, 3);
-    
-    // Save to disk
+
+    // Save back to disk
     @file_put_contents($history_file, json_encode($history));
 }
 
-// Prepare display array
+// Build final display array
 $display_history = array_map(function($item) {
     return is_array($item) ? ($item['title'] ?? '') : $item;
 }, array_slice($history, 0, 3));
 
 $display_history = array_filter($display_history);
 
-// Fallback if completely empty
+// Fallback if empty
 if (empty($display_history)) {
     $display_history = [
         "George Strait - Troubadour",
