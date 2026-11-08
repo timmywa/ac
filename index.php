@@ -1,23 +1,23 @@
 <?php
-// Pre-fetch stream data on server-load for instant rendering (MUST be at the very top)
-$status_json = @file_get_contents('https://ais-sa2.cdnstream1.com/status-json.xsl');
+// Pre-fetch stream data on server-load for instant rendering
+$history_file = __DIR__ . '/song_history.json';
 $initial_current = "America's Country - Three DECADES of Country";
-$initial_history = ["Loading recent tracks..."];
+$initial_history = [
+    "George Strait - Troubadour",
+    "Alan Jackson - Chattahoochee",
+    "Tim McGraw - Live Like You Were Dying"
+];
 
-if ($status_json) {
-    $parsed = json_decode($status_json, true);
-    if (isset($parsed['icestats']['source'])) {
-        $sources = isset($parsed['icestats']['source']['mount']) ? [$parsed['icestats']['source']] : $parsed['icestats']['source'];
-        foreach ($sources as $s) {
-            if (strpos($s['mount'], '1976_128') !== false) {
-                if (!empty($s['title']) && strpos($s['title'], 'ADWTAG_') === false) {
-                    $initial_current = $s['title'];
-                }
-                if (!empty($s['history'])) {
-                    $initial_history = array_column(array_slice($s['history'], 0, 3), 'title');
-                }
-                break;
-            }
+if (file_exists($history_file)) {
+    $saved_data = json_decode(file_get_contents($history_file), true);
+    if (!empty($saved_data) && is_array($saved_data)) {
+        $display_saved = array_map(function($item) {
+            return $item['title'];
+        }, array_slice($saved_data, 0, 3));
+        
+        if (!empty($display_saved)) {
+            $initial_history = $display_saved;
+            $initial_current = $display_saved[0];
         }
     }
 }
@@ -129,9 +129,12 @@ if ($status_json) {
                 <span class="ac-station-slogan">Three DECADES of Country</span>
             </div>
 
-            <div class="ac-now-playing-box">
-                <span class="ac-label">NOW PLAYING</span>
-                <div id="now-playing-track" class="ac-track-title"><?php echo htmlspecialchars($initial_current); ?></div>
+            <div class="ac-player-main-flex">
+                <img id="album-art" src="images/logo-5001.png" alt="Album Art" crossorigin="anonymous">
+                <div class="ac-now-playing-box">
+                    <span class="ac-label">NOW PLAYING</span>
+                    <div id="now-playing-track" class="ac-track-title"><?php echo htmlspecialchars($initial_current); ?></div>
+                </div>
             </div>
 
             <audio id="ac-audio-stream" controls preload="none" style="width: 100%; margin: 15px 0;">
@@ -169,6 +172,21 @@ if ($status_json) {
             border-bottom: 1px solid #3d2f24;
             padding-bottom: 10px;
         }
+        .ac-player-main-flex {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 5px;
+        }
+        #album-art {
+            width: 65px;
+            height: 65px;
+            border-radius: 6px;
+            object-fit: cover;
+            border: 1px solid #3d2f24;
+            background: #261f18;
+            flex-shrink: 0;
+        }
         .ac-live-badge {
             background: #b85d1d;
             color: #fff;
@@ -188,6 +206,7 @@ if ($status_json) {
             padding: 12px 15px;
             border-radius: 6px;
             border-left: 4px solid #b85d1d;
+            flex-grow: 1;
         }
         .ac-label {
             font-size: 10px;
@@ -198,9 +217,10 @@ if ($status_json) {
             margin-bottom: 4px;
         }
         .ac-track-title {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             color: #ffffff;
+            line-height: 1.3;
         }
         .ac-history-section {
             margin-top: 15px;
@@ -223,7 +243,7 @@ if ($status_json) {
         .ac-history-list li {
             font-size: 13px;
             color: #c8b6a6;
-            padding: 4px 0;
+            padding: 5px 0;
             border-bottom: 1px dashed #2d231b;
         }
         .ac-history-list li:last-child {
@@ -232,13 +252,22 @@ if ($status_json) {
         </style>
 
         <script>
+        let lastFetchedTrack = "";
+
         function updatePlayerState() {
             fetch('/nowplaying.php?t=' + Date.now())
                 .then(res => res.json())
                 .then(data => {
                     if (data.current && data.current.full) {
-                        document.getElementById('now-playing-track').textContent = data.current.full;
+                        const trackFull = data.current.full;
+                        document.getElementById('now-playing-track').textContent = trackFull;
+
+                        if (trackFull !== lastFetchedTrack && data.current.artist && data.current.title) {
+                            lastFetchedTrack = trackFull;
+                            fetchAlbumArt(data.current.artist, data.current.title);
+                        }
                     }
+
                     if (data.history && data.history.length > 0) {
                         const historyList = document.getElementById('ac-history-list');
                         historyList.innerHTML = '';
@@ -252,7 +281,30 @@ if ($status_json) {
                 .catch(err => console.warn('Player update check failed:', err));
         }
 
-        // Poll every 15 seconds to keep track and history fresh
+        function fetchAlbumArt(artist, title) {
+            const cleanArtist = artist.split(/ft\.|feat\.|&|,/i)[0].trim();
+            const cleanTitle = title.split(/\(|\[|live|remix/i)[0].trim();
+            
+            const query = encodeURIComponent(`${cleanArtist} ${cleanTitle}`);
+            const url = `https://itunes.apple.com/search?term=${query}&entity=song&limit=1`;
+
+            fetch(url)
+                .then(res => res.json())
+                .then(result => {
+                    const artImg = document.getElementById('album-art');
+                    if (result.results && result.results.length > 0) {
+                        const highResArt = result.results[0].artworkUrl100.replace('100x100bb', '300x300bb');
+                        artImg.src = highResArt;
+                    } else {
+                        artImg.src = 'images/logo-5001.png';
+                    }
+                })
+                .catch(err => {
+                    console.warn('Could not load album art:', err);
+                });
+        }
+
+        // Poll every 15 seconds to keep track, history, and artwork fresh
         setInterval(updatePlayerState, 15000);
         </script>
             
@@ -396,7 +448,6 @@ if ($status_json) {
             applyTheme(currentTheme);
             updateThemeUI();
 
-            // Lazy-render PayPal button once SDK script loads
             if (window.PayPal && PayPal.Donation) {
                 renderPayPal();
             } else {
