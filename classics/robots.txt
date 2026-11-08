@@ -1,6 +1,0 @@
-# Robots.txt for America's Country Classics
-User-agent: *
-Allow: /classics/
-
-# Sitemap location
-Sitemap: https://americascountry.us/classics/sitemap.xml
