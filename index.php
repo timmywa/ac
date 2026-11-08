@@ -302,6 +302,11 @@ function formatCurrentTrackHtml($trackString) {
             .ac-history-list li:last-child {
                 border-bottom: none !important;
             }
+            .ac-history-list li .ac-artist,
+            .ac-history-list li .ac-artist strong {
+                color: #f4eee1;
+                font-weight: 700;
+            }
             </style>
 
             <script>
