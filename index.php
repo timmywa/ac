@@ -139,7 +139,7 @@ function formatTrackHtml($trackString) {
             <h2>🎵 Listen Now!</h2>
             <p>Click the <strong>play</strong> button in the player below to start listening to America's Country!</p>
             
-            <!-- Live Stream Player -->
+            <!-- Live Stream Player (500px Centered Card) -->
             <div class="ac-radio-player-card">
                 <div class="ac-player-header">
                     <span class="ac-live-badge">LIVE</span>
@@ -176,10 +176,12 @@ function formatTrackHtml($trackString) {
                 border: 1px solid #3d2f24;
                 border-radius: 8px;
                 padding: 22px;
-                max-width: 480px;
+                width: 100%;
+                max-width: 500px;
                 font-family: inherit;
                 box-shadow: 0 4px 15px rgba(0,0,0,0.3);
                 margin: 20px auto;
+                box-sizing: border-box;
             }
             .ac-player-header {
                 display: flex;
@@ -259,18 +261,22 @@ function formatTrackHtml($trackString) {
                 margin-bottom: 8px;
             }
             .ac-history-list {
-                list-style: none;
-                padding: 0;
-                margin: 0;
+                list-style: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
             }
             .ac-history-list li {
                 font-size: 13px;
                 color: #c8b6a6;
-                padding: 5px 0;
-                border-bottom: 1px dashed #2d231b;
+                padding: 5px 0 !important;
+                margin: 0 !important;
+                background: transparent !important;
+                border: none !important;
+                border-bottom: 1px dashed #2d231b !important;
+                list-style-type: none !important;
             }
             .ac-history-list li:last-child {
-                border-bottom: none;
+                border-bottom: none !important;
             }
             </style>
 
