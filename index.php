@@ -404,5 +404,31 @@ document.addEventListener('DOMContentLoaded', () => {
         gtag('js', new Date());
         gtag('config', 'G-7PSR0H57RS');
     </script>
+
+    <?php
+// Pre-fetch stream data on server-load for instant rendering
+$status_json = @file_get_contents('https://ais-sa2.cdnstream1.com/status-json.xsl');
+$initial_current = "America's Country - Three DECADES of Country";
+$initial_history = ["Loading recent tracks..."];
+
+if ($status_json) {
+    $parsed = json_decode($status_json, true);
+    if (isset($parsed['icestats']['source'])) {
+        $sources = isset($parsed['icestats']['source']['mount']) ? [$parsed['icestats']['source']] : $parsed['icestats']['source'];
+        foreach ($sources as $s) {
+            if (strpos($s['mount'], '1976_128') !== false) {
+                if (!empty($s['title']) && strpos($s['title'], 'ADWTAG_') === false) {
+                    $initial_current = $s['title'];
+                }
+                if (!empty($s['history'])) {
+                    $initial_history = array_column(array_slice($s['history'], 0, 3), 'title');
+                }
+                break;
+            }
+        }
+    }
+}
+?>
+
 </body>
 </html>
