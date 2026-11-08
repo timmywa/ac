@@ -12,14 +12,31 @@ if (file_exists($history_file)) {
     $saved_data = json_decode(file_get_contents($history_file), true);
     if (!empty($saved_data) && is_array($saved_data)) {
         $display_saved = array_map(function($item) {
-            return $item['title'];
-        }, array_slice($saved_data, 0, 3));
+            return is_array($item) ? ($item['title'] ?? '') : $item;
+        }, $saved_data);
         
+        $display_saved = array_filter($display_saved);
         if (!empty($display_saved)) {
-            $initial_history = $display_saved;
-            $initial_current = $display_saved[0];
+            // Top item is current live song
+            $top_full = array_shift($display_saved);
+            if (!empty($top_full)) {
+                $initial_current = $top_full;
+            }
+            // Remaining items form the true past track history
+            if (!empty($display_saved)) {
+                $initial_history = array_values(array_slice($display_saved, 0, 3));
+            }
         }
     }
+}
+
+// Helper to format track string into bold artist / normal title HTML
+function formatTrackHtml($trackString) {
+    if (strpos($trackString, ' - ') !== false) {
+        list($artist, $title) = explode(' - ', $trackString, 2);
+        return '<span class="ac-artist"><strong>' . htmlspecialchars(trim($artist)) . '</strong></span> - <span class="ac-title">' . htmlspecialchars(trim($title)) . '</span>';
+    }
+    return '<span class="ac-title">' . htmlspecialchars($trackString) . '</span>';
 }
 ?>
 <!DOCTYPE html>
@@ -53,42 +70,42 @@ if (file_exists($history_file)) {
     <link rel="manifest" href="/site.webmanifest">
 
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
     {
-      "@type": "RadioStation",
-      "@id": "https://americascountry.us/#station",
-      "name": "America's Country",
-      "url": "https://americascountry.us/",
-      "logo": "https://americascountry.us/images/logo-5001.png",
-      "image": "https://americascountry.us/images/Site%20Banner-option3_1_1.webp",
-      "description": "Stream America's Country! Enjoy three decades of country music from the 90s to today.",
-      "slogan": "Three DECADES of Country!",
-      "email": "help@americascountry.us",
-      "telephone": "+1-801-788-4916",
-      "parentOrganization": {
-        "@type": "Organization",
-        "name": "SuiteSounds Entertainment, LLC"
-      },
-      "sameAs": [
-        "https://www.facebook.com/americascountry",
-        "https://x.com/americascountry",
-        "https://instagram.com/americascountry",
-        "https://www.threads.net/@americascountry",
-        "https://bsky.app/profile/americascountry.us"
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "RadioStation",
+          "@id": "https://americascountry.us/#station",
+          "name": "America's Country",
+          "url": "https://americascountry.us/",
+          "logo": "https://americascountry.us/images/logo-5001.png",
+          "image": "https://americascountry.us/images/Site%20Banner-option3_1_1.webp",
+          "description": "Stream America's Country! Enjoy three decades of country music from the 90s to today.",
+          "slogan": "Three DECADES of Country!",
+          "email": "help@americascountry.us",
+          "telephone": "+1-801-788-4916",
+          "parentOrganization": {
+            "@type": "Organization",
+            "name": "SuiteSounds Entertainment, LLC"
+          },
+          "sameAs": [
+            "https://www.facebook.com/americascountry",
+            "https://x.com/americascountry",
+            "https://instagram.com/americascountry",
+            "https://www.threads.net/@americascountry",
+            "https://bsky.app/profile/americascountry.us"
+          ]
+        },
+        {
+          "@type": "RadioBroadcastService",
+          "@id": "https://americascountry.us/#service",
+          "name": "America's Country Live Stream",
+          "broadcaster": {
+            "@id": "https://americascountry.us/#station"
+          }
+        }
       ]
-    },
-    {
-      "@type": "RadioBroadcastService",
-      "@id": "https://americascountry.us/#service",
-      "name": "America's Country Live Stream",
-      "broadcaster": {
-        "@id": "https://americascountry.us/#station"
-      }
     }
-  ]
-}
     </script>
 </head>
 
@@ -133,7 +150,7 @@ if (file_exists($history_file)) {
                     <img id="album-art" src="images/logo-5001.png" alt="Album Art" crossorigin="anonymous">
                     <div class="ac-now-playing-box">
                         <span class="ac-label">NOW PLAYING</span>
-                        <div id="now-playing-track" class="ac-track-title"><?php echo htmlspecialchars($initial_current); ?></div>
+                        <div id="now-playing-track" class="ac-track-title"><?php echo formatTrackHtml($initial_current); ?></div>
                     </div>
                 </div>
 
@@ -146,7 +163,7 @@ if (file_exists($history_file)) {
                     <span class="ac-history-label">Recently Played</span>
                     <ul id="ac-history-list" class="ac-history-list">
                         <?php foreach ($initial_history as $track): ?>
-                            <li><?php echo htmlspecialchars($track); ?></li>
+                            <li><?php echo formatTrackHtml($track); ?></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>
@@ -219,9 +236,14 @@ if (file_exists($history_file)) {
             }
             .ac-track-title {
                 font-size: 15px;
-                font-weight: 600;
                 color: #ffffff;
                 line-height: 1.35;
+            }
+            .ac-artist {
+                font-weight: bold;
+            }
+            .ac-title {
+                font-weight: normal;
             }
             .ac-history-section {
                 margin-top: 15px;
@@ -261,7 +283,9 @@ if (file_exists($history_file)) {
                     .then(data => {
                         if (data.current && data.current.full) {
                             const trackFull = data.current.full;
-                            document.getElementById('now-playing-track').textContent = trackFull;
+                            
+                            // Render Current Song with Bold Artist / Normal Title
+                            document.getElementById('now-playing-track').innerHTML = formatTrackHtml(trackFull);
 
                             if (trackFull !== lastFetchedTrack && data.current.artist && data.current.title) {
                                 lastFetchedTrack = trackFull;
@@ -270,16 +294,39 @@ if (file_exists($history_file)) {
                         }
 
                         if (data.history && data.history.length > 0) {
+                            let historyItems = [...data.history];
+                            const liveFull = data.current ? data.current.full : "";
+                            
+                            // Remove live track from top of history stack if duplicated
+                            if (historyItems.length > 0 && historyItems[0] === liveFull) {
+                                historyItems.shift();
+                            }
+
                             const historyList = document.getElementById('ac-history-list');
                             historyList.innerHTML = '';
-                            data.history.forEach(track => {
+                            
+                            historyItems.slice(0, 3).forEach(track => {
                                 const li = document.createElement('li');
-                                li.textContent = track;
+                                li.innerHTML = formatTrackHtml(track);
                                 historyList.appendChild(li);
                             });
                         }
                     })
                     .catch(err => console.warn('Player update check failed:', err));
+            }
+
+            function formatTrackHtml(trackString) {
+                if (trackString.includes(' - ')) {
+                    const parts = trackString.split(' - ');
+                    const artist = parts[0].trim();
+                    const title = parts.slice(1).join(' - ').trim();
+                    return `<span class="ac-artist"><strong>${escapeHtml(artist)}</strong></span> - <span class="ac-title">${escapeHtml(title)}</span>`;
+                }
+                return `<span class="ac-title">${escapeHtml(trackString)}</span>`;
+            }
+
+            function escapeHtml(str) {
+                return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
             }
 
             function fetchAlbumArt(artist, title) {
