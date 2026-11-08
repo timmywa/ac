@@ -94,7 +94,7 @@
             <h1><span class="tagline">Three Decades of Country!</span></h1>
         </header>
 
-        <section id="tunein">
+       <!-- <section id="tunein">
             <h2>🎵 Listen Now!</h2>
             <p>Click the <strong>play</strong> button in the player below to start listening to America's Country!</p>
             
@@ -159,7 +159,41 @@
                 s.src = "//ecdn.onlineradiobox.com/js/pwidget2.min.235ca64e.js";
                 t = document.getElementsByTagName('script')[0]; t.parentNode.insertBefore(s, t);
             </script>
-            </div>
+            </div> -->
+        <!-- Live Stream Player -->
+<div class="ac-player-container">
+    <div class="ac-now-playing">
+        <span class="label">NOW PLAYING:</span>
+        <span id="now-playing-track">Loading track info...</span>
+    </div>
+    
+    <audio id="ac-stream-player" controls preload="none">
+        <source src="https://ais-sa2.cdnstream1.com/1976_128.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+
+<!-- Auto-refreshing Metadata Script -->
+<script>
+function fetchNowPlaying() {
+    fetch('/nowplaying.php')
+        .then(response => response.json())
+        .then(data => {
+            const trackElement = document.getElementById('now-playing-track');
+            if (trackElement && data.full) {
+                trackElement.textContent = data.full;
+            }
+        })
+        .catch(err => console.error('Now Playing fetch error:', err));
+}
+
+// Fetch immediately on load, then poll every 15 seconds
+document.addEventListener('DOMContentLoaded', () => {
+    fetchNowPlaying();
+    setInterval(fetchNowPlaying, 15000);
+});
+</script>
+
             
             <ul style="margin-top: 20px; margin-bottom: 20px;">
                 <li>
