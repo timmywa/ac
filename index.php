@@ -151,15 +151,14 @@ if (file_exists($history_file)) {
                 </ul>
             </div>
         </div>
-
-        <style>
-        .ac-radio-player-card {
+<style>
+         .ac-radio-player-card {
             background: #1a1512;
             color: #f4eee1;
             border: 1px solid #3d2f24;
             border-radius: 8px;
-            padding: 20px;
-            max-width: 450px;
+            padding: 22px;
+            max-width: 480px; /* Slightly wider to accommodate larger art */
             font-family: inherit;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             margin: 20px auto;
@@ -175,17 +174,18 @@ if (file_exists($history_file)) {
         .ac-player-main-flex {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 5px;
+            gap: 18px; /* Slightly more space between art and text */
+            margin-bottom: 8px;
         }
         #album-art {
-            width: 65px;
-            height: 65px;
+            width: 100px;  /* Increased from 65px to 100px */
+            height: 100px; /* Increased from 65px to 100px */
             border-radius: 6px;
             object-fit: cover;
             border: 1px solid #3d2f24;
             background: #261f18;
             flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
         }
         .ac-live-badge {
             background: #b85d1d;
@@ -203,7 +203,7 @@ if (file_exists($history_file)) {
         }
         .ac-now-playing-box {
             background: #261f18;
-            padding: 12px 15px;
+            padding: 14px 16px;
             border-radius: 6px;
             border-left: 4px solid #b85d1d;
             flex-grow: 1;
@@ -214,13 +214,13 @@ if (file_exists($history_file)) {
             color: #b85d1d;
             font-weight: bold;
             display: block;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
         .ac-track-title {
             font-size: 15px;
             font-weight: 600;
             color: #ffffff;
-            line-height: 1.3;
+            line-height: 1.35;
         }
         .ac-history-section {
             margin-top: 15px;
@@ -249,7 +249,7 @@ if (file_exists($history_file)) {
         .ac-history-list li:last-child {
             border-bottom: none;
         }
-        </style>
+     </syle>
 
         <script>
         let lastFetchedTrack = "";
