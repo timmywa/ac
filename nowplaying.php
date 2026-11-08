@@ -31,7 +31,6 @@ if ($fp) {
     $metaDataHeaders = stream_get_meta_data($fp);
     $wrapperData = $metaDataHeaders['wrapper_data'] ?? [];
 
-    // Find the ICY metadata interval byte offset
     foreach ($wrapperData as $header) {
         if (strncasecmp($header, 'icy-metaint:', 12) === 0) {
             $metaInterval = (int)trim(substr($header, 12));
@@ -40,9 +39,7 @@ if ($fp) {
     }
 
     if ($metaInterval > 0) {
-        // Skip audio frames to reach the metadata block
         fread($fp, $metaInterval);
-
         $lenByte = ord(fread($fp, 1));
         if ($lenByte > 0) {
             $rawMeta = fread($fp, $lenByte * 16);
@@ -50,7 +47,6 @@ if ($fp) {
             if (preg_match("/StreamTitle='(.*?)';/i", $rawMeta, $matches)) {
                 $rawTitle = trim($matches[1]);
                 
-                // Ignore ad tags or station ID breaks, use fallback or keep previous if needed
                 if (!empty($rawTitle) && strpos($rawTitle, 'ADWTAG_') === false && strpos($rawTitle, 'THIS STATION WILL CONTINUE') === false) {
                     $current_full = $rawTitle;
                     if (strpos($rawTitle, ' - ') !== false) {
@@ -67,25 +63,61 @@ if ($fp) {
     fclose($fp);
 }
 
-// Load history log
+// Load existing history
 $history = [];
 if (file_exists($history_file)) {
-    $history_data = json_decode(file_get_contents($history_file), true);
-    if (is_array($history_data)) {
-        $history = $history_data;
+    $saved_data = json_decode(file_get_contents($history_file), true);
+    if (is_array($saved_data)) {
+        $history = $saved_data;
     }
 }
 
-// If we got a valid song title and it's different from the last logged track, update history
-if ($current_full !== "America's Country - Three DECADES of Country" && (empty($history) || $history[0] !== $current_full)) {
-    array_unshift($history, $current_full);
-    $history = array_slice(array_unique($history), 0, 3);
+// Clean out entries older than 12 hours
+$twelve_hours_ago = time() - 43200;
+$history = array_filter($history, function($item) use ($twelve_hours_ago) {
+    // Support both raw string format or object format gracefully
+    if (is_string($item)) return true;
+    return isset($item['time']) && $item['time'] > $twelve_hours_ago;
+});
+$history = array_values($history);
+
+// Normalize history items to strings for easy comparison
+$history_titles = array_map(function($item) {
+    return is_array($item) ? $item['title'] : $item;
+}, $history);
+
+// If we have a valid song and it's different from the current top of history
+$top_song = !empty($history_titles) ? $history_titles[0] : '';
+if ($current_full !== "America's Country - Three DECADES of Country" && $top_song !== $current_full) {
+    // Add new entry with timestamp to the front
+    array_unshift($history, [
+        'title' => $current_full,
+        'time'  => time()
+    ]);
+    
+    // Keep only unique entries and slice to max 3
+    $seen = [];
+    $unique_history = [];
+    foreach ($history as $h) {
+        $t = is_array($h) ? $h['title'] : $h;
+        if (!isset($seen[$t])) {
+            $seen[$t] = true;
+            $unique_history[] = is_array($h) ? $h : ['title' => $h, 'time' => time()];
+        }
+    }
+    
+    $history = array_slice($unique_history, 0, 3);
     file_put_contents($history_file, json_encode($history));
 }
 
-// Fallback history if log is empty
-if (empty($history)) {
-    $history = [
+// Prepare display array (last 3 titles)
+$display_history = array_map(function($item) {
+    return is_array($item) ? $item['title'] : $item;
+}, array_slice($history, 0, 3));
+
+// Fallback if empty
+if (empty($display_history)) {
+    $display_history = [
         "George Strait - Troubadour",
         "Alan Jackson - Chattahoochee",
         "Tim McGraw - Live Like You Were Dying"
@@ -98,6 +130,6 @@ echo json_encode([
         'title'  => $current_title,
         'full'   => $current_full
     ],
-    'history' => $history
+    'history' => $display_history
 ]);
 exit;
