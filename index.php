@@ -265,6 +265,7 @@ function formatCurrentTrackHtml($trackString) {
             .ac-np-title {
                 display: block;
                 font-weight: normal;
+                color: #d9cdbf;               /* dimmed title */
                 white-space: nowrap;          /* title stays on one line */
                 overflow: hidden;
                 text-overflow: ellipsis;      /* last-resort fallback at minimum size */
