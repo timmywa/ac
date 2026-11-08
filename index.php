@@ -38,6 +38,15 @@ function formatTrackHtml($trackString) {
     }
     return '<span class="ac-title">' . htmlspecialchars($trackString) . '</span>';
 }
+
+// Current song: artist and title on two separate lines, no hyphen
+function formatCurrentTrackHtml($trackString) {
+    if (strpos($trackString, ' - ') !== false) {
+        list($artist, $title) = explode(' - ', $trackString, 2);
+        return '<span class="ac-np-artist">' . htmlspecialchars(trim($artist)) . '</span><span class="ac-np-title">' . htmlspecialchars(trim($title)) . '</span>';
+    }
+    return '<span class="ac-np-title">' . htmlspecialchars($trackString) . '</span>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -150,7 +159,7 @@ function formatTrackHtml($trackString) {
                     <img id="album-art" src="images/logo-5001.png" alt="Album Art" crossorigin="anonymous">
                     <div class="ac-now-playing-box">
                         <span class="ac-label">NOW PLAYING</span>
-                        <div id="now-playing-track" class="ac-track-title"><?php echo formatTrackHtml($initial_current); ?></div>
+                        <div id="now-playing-track" class="ac-track-title"><?php echo formatCurrentTrackHtml($initial_current); ?></div>
                     </div>
                 </div>
 
@@ -227,6 +236,7 @@ function formatTrackHtml($trackString) {
                 border-radius: 6px;
                 border-left: 4px solid #b85d1d;
                 flex-grow: 1;
+                min-width: 0; /* lets the title shrink/fit instead of stretching the card */
             }
             .ac-label {
                 font-size: 10px;
@@ -246,6 +256,18 @@ function formatTrackHtml($trackString) {
             }
             .ac-title {
                 font-weight: normal;
+            }
+            /* Current song: two lines (artist on top, title below) */
+            .ac-np-artist {
+                display: block;
+                font-weight: bold;
+            }
+            .ac-np-title {
+                display: block;
+                font-weight: normal;
+                white-space: nowrap;          /* title stays on one line */
+                overflow: hidden;
+                text-overflow: ellipsis;      /* last-resort fallback at minimum size */
             }
             .ac-history-section {
                 margin-top: 15px;
@@ -291,8 +313,9 @@ function formatTrackHtml($trackString) {
                         if (data.current && data.current.full) {
                             const trackFull = data.current.full;
                             
-                            // Render Current Song with Bold Artist / Normal Title
-                            document.getElementById('now-playing-track').innerHTML = formatTrackHtml(trackFull);
+                            // Render Current Song: bold artist on line 1, title on line 2 (no hyphen)
+                            document.getElementById('now-playing-track').innerHTML = formatCurrentTrackHtml(trackFull);
+                            fitTitle();
 
                             if (trackFull !== lastFetchedTrack && data.current.artist && data.current.title) {
                                 lastFetchedTrack = trackFull;
@@ -331,6 +354,39 @@ function formatTrackHtml($trackString) {
                 }
                 return `<span class="ac-title">${escapeHtml(trackString)}</span>`;
             }
+
+            function formatCurrentTrackHtml(trackString) {
+                if (trackString.includes(' - ')) {
+                    const parts = trackString.split(' - ');
+                    const artist = parts[0].trim();
+                    const title = parts.slice(1).join(' - ').trim();
+                    return `<span class="ac-np-artist">${escapeHtml(artist)}</span><span class="ac-np-title">${escapeHtml(title)}</span>`;
+                }
+                return `<span class="ac-np-title">${escapeHtml(trackString)}</span>`;
+            }
+
+            // Shrink the current song title until it fits on one line
+            const TITLE_MIN_PX = 11;
+
+            function fitTitle() {
+                const el = document.querySelector('#now-playing-track .ac-np-title');
+                if (!el) return;
+
+                el.style.fontSize = '';   // reset to the CSS maximum (the box's 15px)
+                let size = parseFloat(getComputedStyle(el).fontSize);
+
+                while (el.scrollWidth > el.clientWidth && size > TITLE_MIN_PX) {
+                    size -= 0.5;
+                    el.style.fontSize = size + 'px';
+                }
+            }
+
+            window.addEventListener('resize', fitTitle);
+            window.addEventListener('load', fitTitle);
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(fitTitle);
+            }
+            fitTitle(); // fit the server-rendered title right away
 
             function escapeHtml(str) {
                 return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
